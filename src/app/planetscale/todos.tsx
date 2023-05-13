@@ -2,6 +2,8 @@ import 'server-only'
 
 import { PrismaClient } from '@prisma/client'
 
+import { NewTodo } from './new-todo'
+
 const prisma = new PrismaClient()
 
 export const Todos = async () => {
@@ -11,6 +13,7 @@ export const Todos = async () => {
   return (
     <div>
       <p>todos</p>
+      <NewTodo />
     </div>
   )
 }
