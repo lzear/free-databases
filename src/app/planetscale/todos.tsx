@@ -1,6 +1,7 @@
 import 'server-only'
 
 import { PrismaClient } from '@prisma/client'
+
 const prisma = new PrismaClient()
 
 export const Todos = async () => {
