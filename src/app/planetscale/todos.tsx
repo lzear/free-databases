@@ -12,6 +12,11 @@ export const Todos = async () => {
 
   return (
     <div>
+      {todos.map((todo) => (
+        <div key={todo.id}>
+          <p>{todo.name}</p>
+        </div>
+      ))}
       <p>todos</p>
       <NewTodo />
     </div>

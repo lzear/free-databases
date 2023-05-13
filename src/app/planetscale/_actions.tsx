@@ -2,6 +2,7 @@
 
 import { PrismaClient } from '@prisma/client'
 import { nanoid } from 'nanoid'
+import { revalidatePath } from 'next/cache'
 
 export async function create(formData: FormData) {
   const prisma = new PrismaClient()
@@ -11,11 +12,12 @@ export async function create(formData: FormData) {
   if (!(todoName && typeof todoName === 'string')) {
     return
   }
-  return prisma.todo.create({
+  await prisma.todo.create({
     data: {
       id: nanoid(),
       name: todoName,
       done: false,
     },
   })
+  revalidatePath('/planetscale')
 }
