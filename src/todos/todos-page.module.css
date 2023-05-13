@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.main h1 {
+  margin-bottom: 2rem;
+}
+
+.descriptionH2 {
+  margin-top: 10px;
+  display: block;
+}
+
+.descriptionH2 span {
+  transition: transform 200ms;
+  display: inline-block;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .descriptionH2:hover {
+    /*background: rgba(var(--card-rgb), 0.1);*/
+    /*outline: 1px solid rgba(var(--card-border-rgb), 0.15);*/
+  }
+
+  .descriptionH2:hover span {
+    transform: translateX(-4px);
+  }
+}

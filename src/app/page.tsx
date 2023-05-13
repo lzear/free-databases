@@ -1,23 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { NextDescription } from '../components/next-description'
 import styles from './page.module.css'
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <h1>Elzear&apos;s todos app</h1>
+      <h1>Todo-lists demo app</h1>
 
-      <div className={styles.description}>
-        <p>Todo app to test multiple backends</p>
-      </div>
+      <NextDescription>A playground to test a few backends</NextDescription>
       <div className={styles.grid}>
-        <Link
-          href="/planetscale"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="/planetscale" className={styles.card}>
           <h2>
             <Image
               className={styles.logo}

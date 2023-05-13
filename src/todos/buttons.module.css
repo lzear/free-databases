@@ -1,0 +1,6 @@
+.button span {
+  transform: scale(0.7142);
+}
+.button {
+  padding: 0.2857rem !important;
+}

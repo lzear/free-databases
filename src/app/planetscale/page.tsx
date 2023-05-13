@@ -1,12 +1,8 @@
-import styles from './page.module.css'
-import { Todos } from './todos'
+import React from 'react'
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <h1>Todos – PlanetScale</h1>
-      {/* @ts-expect-error Server Component */}
-      <Todos />
-    </main>
-  )
+import { DataProviders } from '../../data-providers/data-providers'
+import { TodosPage } from '../../todos/todos-page'
+
+export default function PlanetScale() {
+  return <TodosPage provider={DataProviders.PlanetScale} />
 }

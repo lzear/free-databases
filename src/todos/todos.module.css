@@ -1,0 +1,25 @@
+p.date {
+    color: #777;
+    font-size: 10px;
+    /*float: right;*/
+    text-align: right;
+}
+
+.text {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    font-weight: bold;
+}
+
+.header {
+    display: inline-flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+}

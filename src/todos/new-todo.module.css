@@ -1,0 +1,7 @@
+.newTodo {
+    display: flex;
+    flex-direction: column;
+}
+.newTodo textarea {
+    background: transparent;
+}
