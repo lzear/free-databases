@@ -7,5 +7,9 @@ export const Todos = async () => {
   const todos = await prisma.todo.findMany()
   console.log('🦺 antoinelog todos', todos)
 
-  return <div>todos</div>
+  return (
+    <div>
+      <p>todos</p>
+    </div>
+  )
 }
