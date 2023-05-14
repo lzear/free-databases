@@ -1,5 +1,6 @@
-import { Todo } from '@prisma/client'
+import type { Todo } from '@prisma/client'
 
+import { Cookie } from './cookie'
 import { DataProvider } from './data-providers'
 import { PlanetScale } from './planetscale'
 import { Supabase } from './supabase'
@@ -16,4 +17,5 @@ export type TodoProvider = {
 export const todoProviders = {
   PlanetScale,
   Supabase,
+  Cookie,
 } satisfies Record<DataProvider, TodoProvider>

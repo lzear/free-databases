@@ -11,6 +11,25 @@ export default function Home() {
 
       <NextDescription>A playground to test a few backends</NextDescription>
       <div className={styles.grid}>
+        <Link href="/cookie" className={styles.card}>
+          <h2>
+            <Image
+              className={styles.logo}
+              src="/cookie.png"
+              alt="Cookie icon"
+              width={32}
+              height={32}
+              priority
+            />
+            Cookie <span>-&gt;</span>
+          </h2>
+          <p>
+            A cookie is a small text file stored on a user&apos;s browser by a
+            website to remember information or preferences. It enables stateful
+            interactions, like tracking user sessions, retaining login
+            information, or personalizing user experiences.
+          </p>
+        </Link>
         <Link href="/planetscale" className={styles.card}>
           <h2>
             <Image

@@ -16,9 +16,9 @@ type Props = {
   provider: DataProvider
 }
 
-const displayTime = (dateTime: Date) => (
-  <time dateTime={formatISO(dateTime)}>
-    {formatDistance(dateTime, new Date())}
+const displayTime = (dateTime: Date | string) => (
+  <time dateTime={formatISO(new Date(dateTime))}>
+    {formatDistance(new Date(dateTime), new Date())}
   </time>
 )
 const DisplayDate = ({ todo }: { todo: Todo }) => {
