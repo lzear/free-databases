@@ -25,7 +25,13 @@ module.exports = {
     'unicorn/prevent-abbreviations': [
       2,
       {
-        allowList: { dev: true, env: true, props: true, Props: true },
+        allowList: {
+          dev: true,
+          env: true,
+          props: true,
+          Props: true,
+          e2e: true,
+        },
       },
     ],
   },

@@ -16,6 +16,7 @@ export const ToggleDone = ({ todo, provider }: Props) => {
     <form action={() => toggleDone(provider, todo)}>
       {todo.done ? (
         <Button
+          data-testid="button-undo"
           size="small"
           label="Undo"
           icon="pi pi-replay"
@@ -25,6 +26,7 @@ export const ToggleDone = ({ todo, provider }: Props) => {
         />
       ) : (
         <Button
+          data-testid="button-done"
           size="small"
           label="Done"
           icon="pi pi-check"
@@ -40,6 +42,7 @@ export const DeleteForever = ({ todo, provider }: Props) => {
   return (
     <form action={() => deleteForever(provider, todo)}>
       <Button
+        data-testid="button-delete"
         type="submit"
         size="small"
         label="Delete"

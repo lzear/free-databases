@@ -41,6 +41,7 @@ export const TodoList = async ({ done, provider }: Props) => {
     <>
       {todos.map((todo) => (
         <Card
+          data-testid="todo-card"
           key={todo.id}
           style={{
             background: randomColor(todo.id, 100, 60) + '12',
@@ -48,12 +49,12 @@ export const TodoList = async ({ done, provider }: Props) => {
         >
           <div className={styles.header}>
             <DisplayDate todo={todo} />
-            <div style={{ display: 'flex', gap: 5 }}>
+            <div style={{ display: 'flex', gap: 5 }} data-testid="todos-done">
               <ToggleDone todo={todo} provider={provider} />
               {todo.done && <DeleteForever todo={todo} provider={provider} />}
             </div>
           </div>
-          <div className={styles.text}>{todo.name}</div>
+          <p className={styles.text}>{todo.name}</p>
         </Card>
       ))}
     </>
