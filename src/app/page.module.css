@@ -7,12 +7,17 @@
   min-height: 100vh;
 }
 
+.main h1 {
+  margin-bottom: 20px;
+}
+
 .code {
   font-weight: 700;
   font-family: var(--font-mono);
 }
 
 .grid {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, minmax(25%, auto));
   width: var(--max-width);

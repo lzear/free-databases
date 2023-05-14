@@ -4,6 +4,7 @@
   width: var(--max-width);
   max-width: 100%;
   grid-gap: 4px;
+  margin: 0 auto;
 }
 
 .card {
@@ -45,12 +46,12 @@
   .grid {
     grid-template-columns: 1fr;
     margin-bottom: 120px;
-    max-width: 320px;
+    /*max-width: 320px;*/
     text-align: center;
   }
 
   .card {
-    padding: 1rem 2.5rem;
+    padding: 1rem 1rem;
   }
 
   .card h2 {

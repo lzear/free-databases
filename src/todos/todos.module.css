@@ -3,6 +3,8 @@ p.date {
     font-size: 10px;
     /*float: right;*/
     text-align: right;
+    max-height: 50px;
+    overflow: hidden;
 }
 
 .text {

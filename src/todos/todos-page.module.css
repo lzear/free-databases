@@ -1,8 +1,14 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding: 6rem;
+  margin: 4rem auto;
+  padding: 0 6rem;
   min-height: 100vh;
+}
+@media (max-width: 400px) {
+    .main {
+      padding: 0 1rem;
+    }
 }
 
 .main h1 {
@@ -21,11 +27,6 @@
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  .descriptionH2:hover {
-    /*background: rgba(var(--card-rgb), 0.1);*/
-    /*outline: 1px solid rgba(var(--card-border-rgb), 0.15);*/
-  }
-
   .descriptionH2:hover span {
     transform: translateX(-4px);
   }

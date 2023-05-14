@@ -14,7 +14,7 @@ export const NewTodo = ({ provider }: { provider: DataProvider }) => {
   const [isPending, startTransition] = useTransition()
   const [name, setName] = useState('')
   return (
-    <Card>
+    <Card style={{ padding: 0 }}>
       <form
         action={() => {
           startTransition(async () => {
@@ -25,6 +25,7 @@ export const NewTodo = ({ provider }: { provider: DataProvider }) => {
         className={style.newTodo}
       >
         <InputTextarea
+          style={{ resize: 'vertical', width: '100%' }}
           placeholder="Create a new item"
           disabled={isPending}
           name="todo-name"
