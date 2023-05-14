@@ -34,7 +34,13 @@ export const Cookie = {
   },
   getTodos: async (done) => {
     const todos = await getTodos()
-    return todos.filter((todo) => todo.done === done)
+    return todos
+      .filter((todo) => todo.done === done)
+      .map((todo) => ({
+        ...todo,
+        updatedAt: new Date(todo.updatedAt),
+        createdAt: new Date(todo.createdAt),
+      }))
   },
   setDone: async (id, done) => {
     const todos = await getTodos()
