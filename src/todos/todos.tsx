@@ -37,6 +37,33 @@ const DisplayDate = ({ todo }: { todo: Todo }) => {
   )
 }
 
+const TodoComponent = ({
+  todo,
+  provider,
+}: {
+  todo: Todo
+  provider: DataProvider
+}) => {
+  return (
+    <Card
+      data-testid="todo-card"
+      key={todo.id}
+      style={{
+        background: randomColor(todo.id, 100, 60) + '12',
+      }}
+    >
+      <div className={styles.header}>
+        <DisplayDate todo={todo} />
+        <div style={{ display: 'flex', gap: 5 }} data-testid="todos-done">
+          <ToggleDone todo={todo} provider={provider} />
+          {todo.done && <DeleteForever todo={todo} provider={provider} />}
+        </div>
+      </div>
+      <p className={styles.text}>{todo.name}</p>
+    </Card>
+  )
+}
+
 export const TodoList = async ({ done, provider, title, prepend }: Props) => {
   const todos = await todoProviders[provider].getTodos(done)
   return (
@@ -47,22 +74,7 @@ export const TodoList = async ({ done, provider, title, prepend }: Props) => {
       <CardGrid>
         {prepend}
         {todos.map((todo) => (
-          <Card
-            data-testid="todo-card"
-            key={todo.id}
-            style={{
-              background: randomColor(todo.id, 100, 60) + '12',
-            }}
-          >
-            <div className={styles.header}>
-              <DisplayDate todo={todo} />
-              <div style={{ display: 'flex', gap: 5 }} data-testid="todos-done">
-                <ToggleDone todo={todo} provider={provider} />
-                {todo.done && <DeleteForever todo={todo} provider={provider} />}
-              </div>
-            </div>
-            <p className={styles.text}>{todo.name}</p>
-          </Card>
+          <TodoComponent key={todo.id} todo={todo} provider={provider} />
         ))}
       </CardGrid>
     </>
