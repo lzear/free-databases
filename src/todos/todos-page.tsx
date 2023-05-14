@@ -4,11 +4,10 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import React from 'react'
 
-import { CardGrid } from '../components/card'
 import { NextDescription } from '../components/next-description'
 import { DataProvider } from '../data-providers/data-providers'
 import { todoProviders } from '../data-providers/todo-providers'
-import { NewTodo } from './new-todo'
+import { TodoEdit } from './todo-edit'
 import { TodoList } from './todos'
 import styles from './todos-page.module.css'
 
@@ -33,7 +32,7 @@ export const TodosPage = ({ provider }: { provider: DataProvider }) => {
         provider={provider}
         done={false}
         title="To do"
-        prepend={<NewTodo provider={provider} />}
+        prepend={<TodoEdit provider={provider} />}
       />
 
       {/* @ts-expect-error Server Component */}

@@ -1,25 +1,17 @@
-import 'server-only'
+'use client'
 
 import type { Todo } from '@prisma/client'
 import { differenceInSeconds, formatDistance, formatISO } from 'date-fns'
 import { Button } from 'primereact/button'
 import React, { useState } from 'react'
 
-import { Card, CardGrid } from '../components/card'
+import { Card } from '../components/card'
 import { DataProvider } from '../data-providers/data-providers'
-import { todoProviders } from '../data-providers/todo-providers'
 import buttonStyle from './buttons.module.css'
 import { randomColor } from './color'
 import { DeleteForever, ToggleDone } from './todo-buttons'
 import { TodoEdit } from './todo-edit'
 import styles from './todos.module.css'
-
-type Props = {
-  done: boolean
-  provider: DataProvider
-  title: string
-  prepend?: React.ReactNode
-}
 
 const displayTime = (dateTime: Date | string) => (
   <time dateTime={formatISO(new Date(dateTime))}>
@@ -40,7 +32,7 @@ const DisplayDate = ({ todo }: { todo: Todo }) => {
   )
 }
 
-const TodoComponent = ({
+export const TodoComponent = ({
   todo,
   provider,
 }: {
@@ -67,8 +59,15 @@ const TodoComponent = ({
       <div className={styles.header}>
         <DisplayDate todo={todo} />
         <div style={{ display: 'flex', gap: 5 }} data-testid="todos-done">
-          <Button size="small" outlined className={buttonStyle.button} />
           <ToggleDone todo={todo} provider={provider} />
+          <Button
+            size="small"
+            outlined
+            className={buttonStyle.button}
+            icon="pi pi-pencil"
+            tooltip="Edit"
+            onClick={() => setEditing(true)}
+          />
           {todo.done && <DeleteForever todo={todo} provider={provider} />}
         </div>
       </div>

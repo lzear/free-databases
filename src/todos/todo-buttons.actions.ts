@@ -11,6 +11,15 @@ export async function create(provider: DataProvider, todoName: string) {
   revalidatePath(todoProviders[provider].path)
 }
 
+export async function rename(
+  provider: DataProvider,
+  todoId: string,
+  todoName: string,
+) {
+  await todoProviders[provider].rename(todoId, todoName)
+  revalidatePath(todoProviders[provider].path)
+}
+
 export const toggleDone = async (provider: DataProvider, todo: Todo) => {
   const { id, done } = todo
   await todoProviders[provider].setDone(id, !done)

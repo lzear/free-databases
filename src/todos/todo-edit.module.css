@@ -5,3 +5,11 @@
 .newTodo textarea {
     background: transparent;
 }
+
+.editButtons {
+    display: flex;
+    gap: 5px;
+}
+.editButtons button {
+    flex: 1;
+}
