@@ -42,5 +42,10 @@ export const Supabase = {
       .from('todos')
       .update({ done, updated_at: new Date().toISOString() })
       .match({ id }),
+  rename: async (id, name) =>
+    supabase
+      .from('todos')
+      .update({ name, updated_at: new Date().toISOString() })
+      .match({ id }),
   deleteForever: async (id) => supabase.from('todos').delete().match({ id }),
 } satisfies TodoProvider

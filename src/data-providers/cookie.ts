@@ -52,7 +52,16 @@ export const Cookie = {
     // @ts-expect-error somehow the type of cookies() is readonly
     cookies().set(KEY, JSON.stringify(newTodos))
   },
-
+  rename: async (id, name) => {
+    const todos = await getTodos()
+    const newTodos = todos.map((todo) =>
+      todo.id === id
+        ? { ...todo, name, updatedAt: new Date().toISOString() }
+        : todo,
+    )
+    // @ts-expect-error somehow the type of cookies() is readonly
+    cookies().set(KEY, JSON.stringify(newTodos))
+  },
   deleteForever: async (id) => {
     const todos = await getTodos()
     const newTodos = todos.filter((todo) => todo.id !== id)

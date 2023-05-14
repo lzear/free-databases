@@ -26,5 +26,10 @@ export const PlanetScale = {
       where: { id },
       data: { done },
     }),
+  rename: (id, name) =>
+    prisma.todo.update({
+      where: { id },
+      data: { name },
+    }),
   deleteForever: (id) => prisma.todo.delete({ where: { id } }),
 } satisfies TodoProvider
