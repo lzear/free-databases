@@ -47,6 +47,7 @@ export default function Home() {
             scalable MySQL management. It provides horizontal scaling, high
             availability, and global data distribution.
           </p>
+          <p>Warning: the data are shared between all users.</p>
         </Link>
         <Link href="/supabase" className={styles.card}>
           <h2>
@@ -66,6 +67,7 @@ export default function Home() {
             storage. It utilizes PostgreSQL and offers RESTful and real-time
             APIs for rapid application development.
           </p>
+          <p>Warning: the data are shared between all users.</p>
         </Link>
       </div>
     </main>
