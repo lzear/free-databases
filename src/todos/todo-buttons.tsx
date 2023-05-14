@@ -31,14 +31,14 @@ export const ToggleDone = ({ todo, provider }: Props) => {
         <Button
           {...sharedProps(isPending)}
           data-testid="button-undo"
-          label="Undo"
+          tooltip="Undo"
           icon="pi pi-replay"
         />
       ) : (
         <Button
           {...sharedProps(isPending)}
           data-testid="button-done"
-          label="Done"
+          tooltip="Done"
           icon="pi pi-check"
         />
       )}
@@ -53,6 +53,7 @@ export const DeleteForever = ({ todo, provider }: Props) => {
       <Button
         {...sharedProps(isPending)}
         data-testid="button-delete"
+        tooltip="Delete forever"
         type="submit"
         icon="pi pi-trash"
       />
