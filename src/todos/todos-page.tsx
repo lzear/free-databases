@@ -28,18 +28,16 @@ export const TodosPage = ({ provider }: { provider: DataProvider }) => {
         </div>
       </NextDescription>
 
-      <h2 style={{ margin: '40px 0 20px' }}>To do</h2>
-      <CardGrid>
-        <NewTodo provider={provider} />
-        {/* @ts-expect-error Server Component */}
-        <TodoList provider={provider} done={false} />
-      </CardGrid>
+      {/* @ts-expect-error Server Component */}
+      <TodoList
+        provider={provider}
+        done={false}
+        title="To do"
+        prepend={<NewTodo provider={provider} />}
+      />
 
-      <h2 style={{ margin: '40px 0 20px' }}>Done</h2>
-      <CardGrid>
-        {/* @ts-expect-error Server Component */}
-        <TodoList provider={provider} done={true} />
-      </CardGrid>
+      {/* @ts-expect-error Server Component */}
+      <TodoList provider={provider} done={true} title="Done" />
     </main>
   )
 }
