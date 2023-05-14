@@ -10,6 +10,12 @@ if (!process.env.SUPABASE_KEY) throw new Error('Missing SUPABASE_KEY')
 export const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY,
+  {
+    global: {
+      fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+        fetch(input, { ...init, cache: 'no-cache' }),
+    },
+  },
 )
 
 export const Supabase = {
