@@ -2,7 +2,7 @@
 
 import { Button } from 'primereact/button'
 import { InputTextarea } from 'primereact/inputtextarea'
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
 
 import { Card } from '../components/card'
 import { DataProvider } from '../data-providers/data-providers'
@@ -11,18 +11,22 @@ import style from './new-todo.module.css'
 import { create } from './todo-buttons.actions'
 
 export const NewTodo = ({ provider }: { provider: DataProvider }) => {
+  const [isPending, startTransition] = useTransition()
   const [name, setName] = useState('')
   return (
     <Card>
       <form
         action={() => {
-          setName('')
-          return create(provider, name)
+          startTransition(async () => {
+            await create(provider, name)
+            setName('')
+          })
         }}
         className={style.newTodo}
       >
         <InputTextarea
           placeholder="Create a new item"
+          disabled={isPending}
           name="todo-name"
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -31,7 +35,7 @@ export const NewTodo = ({ provider }: { provider: DataProvider }) => {
           className={buttonStyle.button}
           type="submit"
           loading={isPending}
-          disabled={name.length === 0}
+          disabled={name.length === 0 || isPending}
           size="small"
           label="Save"
           icon="pi pi-save"

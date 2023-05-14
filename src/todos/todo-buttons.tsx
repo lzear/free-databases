@@ -2,6 +2,7 @@
 
 import type { Todo } from '@prisma/client'
 import { Button } from 'primereact/button'
+import { useTransition } from 'react'
 
 import { DataProvider } from '../data-providers/data-providers'
 import buttonStyle from './buttons.module.css'
@@ -11,27 +12,34 @@ type Props = {
   todo: Todo
   provider: DataProvider
 }
+
+const sharedProps = (loading: boolean) =>
+  ({
+    loading,
+    disabled: loading,
+    type: 'submit',
+    size: 'small',
+    outlined: true,
+    className: buttonStyle.button,
+  } as const)
+
 export const ToggleDone = ({ todo, provider }: Props) => {
+  const [isPending, startTransition] = useTransition()
   return (
-    <form action={() => toggleDone(provider, todo)}>
+    <form action={() => startTransition(() => toggleDone(provider, todo))}>
       {todo.done ? (
         <Button
+          {...sharedProps(isPending)}
           data-testid="button-undo"
-          size="small"
           label="Undo"
           icon="pi pi-replay"
-          type="submit"
-          outlined
-          className={buttonStyle.button}
         />
       ) : (
         <Button
+          {...sharedProps(isPending)}
           data-testid="button-done"
-          size="small"
           label="Done"
           icon="pi pi-check"
-          type="submit"
-          className={buttonStyle.button}
         />
       )}
     </form>
@@ -39,16 +47,14 @@ export const ToggleDone = ({ todo, provider }: Props) => {
 }
 
 export const DeleteForever = ({ todo, provider }: Props) => {
+  const [isPending, startTransition] = useTransition()
   return (
-    <form action={() => deleteForever(provider, todo)}>
+    <form action={() => startTransition(() => deleteForever(provider, todo))}>
       <Button
+        {...sharedProps(isPending)}
         data-testid="button-delete"
         type="submit"
-        size="small"
-        label="Delete"
         icon="pi pi-trash"
-        outlined
-        className={buttonStyle.button}
       />
     </form>
   )
