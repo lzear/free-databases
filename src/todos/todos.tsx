@@ -1,7 +1,7 @@
 import 'server-only'
 
 import type { Todo } from '@prisma/client'
-import { formatDistance, formatISO } from 'date-fns'
+import { differenceInSeconds, formatDistance, formatISO } from 'date-fns'
 import React from 'react'
 
 import { Card } from '../components/card'
@@ -22,7 +22,7 @@ const displayTime = (dateTime: Date) => (
   </time>
 )
 const DisplayDate = ({ todo }: { todo: Todo }) => {
-  if (todo.createdAt === todo.updatedAt)
+  if (Math.abs(differenceInSeconds(todo.createdAt, todo.updatedAt)) < 30)
     return (
       <p className={styles.date}>Created {displayTime(todo.createdAt)} ago.</p>
     )

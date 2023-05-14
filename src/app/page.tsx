@@ -29,6 +29,25 @@ export default function Home() {
             availability, and global data distribution.
           </p>
         </Link>
+        <Link href="/supabase" className={styles.card}>
+          <h2>
+            <Image
+              className={styles.logo}
+              src="/supabase.png"
+              alt="Supabase Logo"
+              width={32}
+              height={32}
+              priority
+            />
+            Supabase <span>-&gt;</span>
+          </h2>
+          <p>
+            Supabase is an open-source alternative to Firebase, providing a
+            backend-as-a-service with real-time database, authentication, and
+            storage. It utilizes PostgreSQL and offers RESTful and real-time
+            APIs for rapid application development.
+          </p>
+        </Link>
       </div>
     </main>
   )

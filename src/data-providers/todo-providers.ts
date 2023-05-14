@@ -2,6 +2,7 @@ import { Todo } from '@prisma/client'
 
 import { DataProvider } from './data-providers'
 import { PlanetScale } from './planetscale'
+import { Supabase } from './supabase'
 
 export type TodoProvider = {
   name: string
@@ -14,4 +15,5 @@ export type TodoProvider = {
 
 export const todoProviders = {
   PlanetScale,
+  Supabase,
 } satisfies Record<DataProvider, TodoProvider>

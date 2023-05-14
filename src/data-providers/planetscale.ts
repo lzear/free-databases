@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 
 export const PlanetScale = {
   name: 'PlanetScale',
-  path: 'planetscale',
+  path: '/planetscale',
   create: (name) =>
     prisma.todo.create({
       data: {
