@@ -11,9 +11,9 @@ describe('Navigation', () => {
 
     cy.visit('http://localhost:3000/')
 
-    cy.get('a[href*="/planetscale"]').first().click()
+    cy.get('a[href*="/cookie"]').first().click()
 
-    cy.url().should('include', '/planetscale')
+    cy.url().should('include', '/cookie')
 
     cy.get('h2').contains('To do')
 
@@ -21,12 +21,16 @@ describe('Navigation', () => {
 
     cy.get('button').contains('Save').click()
 
+    cy.contains('[data-testid="todo-card"]', myTodo).should('exist')
+
     cy.contains('[data-testid="todo-card"]', myTodo)
       .first()
       .find('[data-testid="button-done"]')
       .click()
 
     cy.get('[data-testid="button-delete"]').first().click()
+
+    cy.contains('[data-testid="todo-card"]', myTodo).should('not.exist')
   })
 })
 
