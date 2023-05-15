@@ -33,6 +33,7 @@ export const ToggleDone = ({ todo, provider }: Props) => {
           data-testid="button-undo"
           tooltip="Undo"
           icon="pi pi-replay"
+          aria-label="Undo the done status of this todo"
         />
       ) : (
         <Button
@@ -40,6 +41,7 @@ export const ToggleDone = ({ todo, provider }: Props) => {
           data-testid="button-done"
           tooltip="Done"
           icon="pi pi-check"
+          aria-label="Mark this todo as done"
         />
       )}
     </form>
@@ -56,6 +58,7 @@ export const DeleteForever = ({ todo, provider }: Props) => {
         tooltip="Delete forever"
         type="submit"
         icon="pi pi-trash"
+        aria-label="Delete this todo forever"
       />
     </form>
   )

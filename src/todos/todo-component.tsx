@@ -67,6 +67,7 @@ export const TodoComponent = ({
             icon="pi pi-pencil"
             tooltip="Edit"
             onClick={() => setEditing(true)}
+            aria-label="Edit the todo text"
           />
           {todo.done && <DeleteForever todo={todo} provider={provider} />}
         </div>

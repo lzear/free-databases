@@ -45,6 +45,7 @@ export const TodoEdit = ({
           name="todo-name"
           value={name}
           onChange={(event) => setName(event.target.value)}
+          aria-label={editTodo ? 'Edit todo name' : 'Create a new todo'}
         />
         <div className={style.editButtons}>
           <Button
