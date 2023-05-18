@@ -14,11 +14,13 @@ import styles from './todos-page.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const TodosPage = ({ provider }: { provider: DataProvider }) => {
+  const todoProvider = todoProviders[provider]
+  if (!todoProvider) throw new Error(`Unknown provider ${provider}`)
   return (
     <main className={styles.main}>
       <NextDescription>
         <div>
-          <p>Todolist using data from {todoProviders[provider].name}</p>
+          <p>Todolist using data from {todoProvider.name}</p>
           <h2 className={styles.descriptionH2}>
             <Link href="/" className={inter.className}>
               <span>&lt;-</span> Home

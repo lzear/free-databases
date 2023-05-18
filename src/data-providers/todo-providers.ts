@@ -19,4 +19,4 @@ export const todoProviders = {
   PlanetScale,
   Supabase,
   Cookie,
-} satisfies Record<DataProvider, TodoProvider>
+} satisfies Record<DataProvider, TodoProvider | undefined>

@@ -15,7 +15,10 @@ type Props = {
 }
 
 export const TodoList = async ({ done, provider, title, prepend }: Props) => {
-  const todos = await todoProviders[provider].getTodos(done)
+  const todoProvider = todoProviders[provider]
+  if (!todoProvider) throw new Error(`Unknown provider ${provider}`)
+
+  const todos = await todoProvider.getTodos(done)
   return (
     <>
       {(prepend || todos.length > 0) && (
