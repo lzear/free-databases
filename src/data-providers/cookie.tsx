@@ -39,7 +39,6 @@ export const cookie = {
       ...todos,
     ]
 
-    // @ts-expect-error somehow the type of cookies() is readonly
     cookies().set(KEY, JSON.stringify(newTodos))
   },
   getTodos: async (done) => {
@@ -59,7 +58,6 @@ export const cookie = {
         ? { ...todo, done, updatedAt: new Date().toISOString() }
         : todo,
     )
-    // @ts-expect-error somehow the type of cookies() is readonly
     cookies().set(KEY, JSON.stringify(newTodos))
   },
   rename: async (id, name) => {
@@ -69,13 +67,11 @@ export const cookie = {
         ? { ...todo, name, updatedAt: new Date().toISOString() }
         : todo,
     )
-    // @ts-expect-error somehow the type of cookies() is readonly
     cookies().set(KEY, JSON.stringify(newTodos))
   },
   deleteForever: async (id) => {
     const todos = await getTodos()
     const newTodos = todos.filter((todo) => todo.id !== id)
-    // @ts-expect-error somehow the type of cookies() is readonly
     cookies().set(KEY, JSON.stringify(newTodos))
   },
 } satisfies TodoProvider
