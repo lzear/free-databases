@@ -28,7 +28,6 @@ export const ToggleDone = ({ todo, provider }: Props) => {
   return (
     <form action={() => startTransition(() => toggleDone(provider, todo))}>
       {todo.done ? (
-        // @ts-expect-error ??? TS2786: 'Button' cannot be used as a JSX component. Its instance type 'Button' is not a valid JSX element.
         <Button
           {...sharedProps(isPending)}
           data-testid="button-undo"
@@ -37,7 +36,6 @@ export const ToggleDone = ({ todo, provider }: Props) => {
           aria-label="Undo the done status of this todo"
         />
       ) : (
-        // @ts-expect-error ??? TS2786: 'Button' cannot be used as a JSX component. Its instance type 'Button' is not a valid JSX element.
         <Button
           {...sharedProps(isPending)}
           data-testid="button-done"
@@ -54,7 +52,6 @@ export const DeleteForever = ({ todo, provider }: Props) => {
   const [isPending, startTransition] = useTransition()
   return (
     <form action={() => startTransition(() => deleteForever(provider, todo))}>
-      {/* @ts-expect-error ??? TS2786: 'Button' cannot be used as a JSX component. Its instance type 'Button' is not a valid JSX element. */}
       <Button
         {...sharedProps(isPending)}
         data-testid="button-delete"

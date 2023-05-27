@@ -25,9 +25,11 @@ export const aiven = {
   icon: 'aiven.svg',
   description: (
     <p>
-      Aiven.io is a managed cloud services provider offering cloud database and messaging services, including Apache
-      Kafka, PostgreSQL, MySQL, Elasticsearch, among others, across several major cloud platforms. Its services
-      encompass automated backups, failover/redundancy, monitoring, and more.
+      Aiven.io is a managed cloud services provider offering cloud database and
+      messaging services, including Apache Kafka, PostgreSQL, MySQL,
+      Elasticsearch, among others, across several major cloud platforms. Its
+      services encompass automated backups, failover/redundancy, monitoring, and
+      more.
     </p>
   ),
   create: (name) =>
@@ -43,8 +45,8 @@ export const aiven = {
       .where(eq(todos.done, done))
       .orderBy(desc(todos.createdAt)),
   setDone: (id, done) =>
-    drizzleClient().update(todos).set({done}).where(eq(todos.id, id)),
+    drizzleClient().update(todos).set({ done }).where(eq(todos.id, id)),
   rename: (id, name) =>
-    drizzleClient().update(todos).set({name}).where(eq(todos.id, id)),
+    drizzleClient().update(todos).set({ name }).where(eq(todos.id, id)),
   deleteForever: (id) => drizzleClient().delete(todos).where(eq(todos.id, id)),
 } satisfies TodoProvider

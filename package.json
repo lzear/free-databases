@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
+  "resolutions": {
+    "better-sqlite3": "^7.6.2"
+  },
   "scripts": {
     "dev": "pscale connect todos dev --port 3309 & next dev",
     "pscale-db-push": "prisma db push",
@@ -27,6 +30,7 @@
     "depcheck": "lerna exec --no-bail --stream -- depcheck"
   },
   "dependencies": {
+    "@libsql/client": "^0.1.6",
     "@prisma/client": "^4.14.1",
     "@supabase/supabase-js": "^2.23.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -56,6 +60,7 @@
     "lodash": "^4.17.21",
     "nanoid": "^4.0.2",
     "next": "13.4.4",
+    "node-gyp": "^9.3.1",
     "postgres": "^3.3.4",
     "prettier": "^2.8.8",
     "primeicons": "^6.0.1",
@@ -68,5 +73,8 @@
     "ts-node": "^10.9.1",
     "typescript": "5.0.4",
     "vercel": "^30.0.0"
+  },
+  "volta": {
+    "node": "18.16.0"
   }
 }

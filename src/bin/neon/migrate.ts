@@ -19,6 +19,7 @@ const migrationsFolder = path.join(
   '/drizzle',
 )
 
+// @ts-ignore
 await migrate(drizzle(migrationClient), { migrationsFolder })
 
 console.log('Migration completed.')

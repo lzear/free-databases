@@ -22,15 +22,12 @@ export const supabase = {
   slug: 'supabase',
   icon: 'supabase.png',
   description: (
-    <>
-      <p>
-        Supabase is an open-source alternative to Firebase, providing a
-        backend-as-a-service with real-time database, authentication, and
-        storage. It utilizes PostgreSQL and offers RESTful and real-time APIs
-        for rapid application development.
-      </p>
-      <p>Warning: the data are shared between all users.</p>
-    </>
+    <p>
+      Supabase is an open-source alternative to Firebase, providing a
+      backend-as-a-service with real-time database, authentication, and storage.
+      It utilizes PostgreSQL and offers RESTful and real-time APIs for rapid
+      application development.
+    </p>
   ),
   isAvailable: Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_KEY),
   create: async (name) =>

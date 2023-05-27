@@ -48,7 +48,6 @@ export const TodoEdit = ({
           aria-label={editTodo ? 'Edit todo name' : 'Create a new todo'}
         />
         <div className={style.editButtons}>
-          {/*// @ts-expect-error TS2786: 'Button' cannot be used as a JSX component.*/}
           <Button
             className={buttonStyle.button}
             type="submit"
@@ -59,7 +58,6 @@ export const TodoEdit = ({
             icon="pi pi-save"
           />
           {cancel && (
-            // @ts-expect-error TS2786: 'Button' cannot be used as a JSX component.
             <Button
               onClick={cancel}
               className={buttonStyle.button}

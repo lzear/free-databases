@@ -30,9 +30,9 @@ export const turso = {
   icon: 'turso.svg',
   description: (
     <p>
-      Turso is a serverless, edge computing platform that enhances
-      application performance globally while prioritizing data security and
-      developer experience
+      Turso is a serverless, edge computing platform that enhances application
+      performance globally while prioritizing data security and developer
+      experience
     </p>
   ),
   create: async (name) =>

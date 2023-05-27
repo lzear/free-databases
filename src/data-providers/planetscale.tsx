@@ -11,14 +11,11 @@ export const planetscale = {
   slug: 'planetscale',
   icon: 'planetscale.svg',
   description: (
-    <>
-      <p>
-        PlanetScale is a serverless database platform using Vitess for scalable
-        MySQL management. It provides horizontal scaling, high availability, and
-        global data distribution.
-      </p>
-      <p>Warning: the data are shared between all users.</p>
-    </>
+    <p>
+      PlanetScale is a serverless database platform using Vitess for scalable
+      MySQL management. It provides horizontal scaling, high availability, and
+      global data distribution.
+    </p>
   ),
   isAvailable: Boolean(process.env.PLANETSCALE_DATABASE_URL),
   create: (name) =>

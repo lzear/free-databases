@@ -12,12 +12,14 @@ const client = createClient({
   authToken: process.env.TURSO_SECRET_TOKEN,
 })
 
+// @ts-ignore
 await client.execute(`
 
 DROP TABLE IF EXISTS todos;
 
 `)
 
+// @ts-ignore
 await client.execute(`
 
 CREATE TABLE \`todos\` (

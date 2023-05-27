@@ -7,12 +7,12 @@ import { cookie } from './cookie'
 import { DataProviderSlug } from './data-providers'
 import { fauna } from './fauna'
 import { flyio } from './fly-io'
+import { neon } from './neon'
 import { planetscale } from './planetscale'
 import { railway } from './railway'
 import { supabase } from './supabase'
 import { turso } from './turso'
 import { vercel } from './vercel'
-import { neon } from './neon'
 
 export type TodoProvider = {
   name: string
