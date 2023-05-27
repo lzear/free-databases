@@ -10,15 +10,15 @@ Run `yarn install`, then `yarn dev`.
 
 You can set up backends with the following providers:
 
-### PlanetScale
+### PlanetScale + Prisma
 
 1. Create a PlanetScale account
 2. Create a `todos` database
 3. Create a `dev` branch
 4. Run `pscale-connect` and then in another terminal `pscale-db-push`
-5. Ensure your `.env` has:
+5. Ensure your `.env` has a connection string, for example:
     ```
-    DATABASE_URL = 'mysql://root@127.0.0.1:3309/todos
+    PLANETSCALE_DATABASE_URL = 'mysql://root@127.0.0.1:3309/todos
    ```
 
 ### Supabase

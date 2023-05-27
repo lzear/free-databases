@@ -20,7 +20,7 @@ export const planetscale = {
       <p>Warning: the data are shared between all users.</p>
     </>
   ),
-  isAvailable: Boolean(process.env.DATABASE_URL),
+  isAvailable: Boolean(process.env.PLANETSCALE_DATABASE_URL),
   create: (name) =>
     prisma.get().todo.create({
       data: {
