@@ -1,19 +1,30 @@
 import { desc, eq } from 'drizzle-orm'
-import { drizzle } from 'drizzle-orm/postgres-js'
+import { drizzle } from 'drizzle-orm/node-postgres'
 import { nanoid } from 'nanoid'
-import postgres from 'postgres'
+import pkg from 'pg'
 
 import { SingletonUnique } from '../singletons'
 import { todos } from './drizzle/postgres'
 import { TodoProvider } from './todo-providers'
 
-const drizzleClientSingleton = new SingletonUnique(() => {
-  if (!process.env.FLYIO_DATABASE_URL)
-    throw new Error('Missing FLYIO_DATABASE_URL')
+const { Pool } = pkg
 
-  // for query purposes
-  const queryClient = postgres(process.env.FLYIO_DATABASE_URL)
-  return drizzle(queryClient)
+const drizzleClientSingleton = new SingletonUnique(() => {
+  if (
+    !process.env.FLYIO_POSTGRES_HOST ||
+    !process.env.FLYIO_POSTGRES_USER ||
+    !process.env.FLYIO_POSTGRES_PASSWORD
+  )
+    throw new Error(
+      'Missing FLYIO_POSTGRES_HOST or FLYIO_POSTGRES_USER or FLYIO_POSTGRES_PASSWORD',
+    )
+
+  const pool = new Pool({
+    host: `${process.env.FLYIO_POSTGRES_HOST}`,
+    user: process.env.FLYIO_POSTGRES_USER,
+    password: process.env.FLYIO_POSTGRES_PASSWORD,
+  })
+  return drizzle(pool)
 })
 
 const drizzleClient = () => drizzleClientSingleton.get()
@@ -21,7 +32,11 @@ const drizzleClient = () => drizzleClientSingleton.get()
 export const flyio = {
   name: 'Fly.io',
   slug: 'fly-io',
-  isAvailable: Boolean(process.env.FLYIO_DATABASE_URL),
+  isAvailable: Boolean(
+    process.env.FLYIO_POSTGRES_HOST &&
+      process.env.FLYIO_POSTGRES_USER &&
+      process.env.FLYIO_POSTGRES_PASSWORD,
+  ),
   icon: 'fly-io.webp',
   description: (
     <p>

@@ -3,16 +3,13 @@
 import path from 'node:path'
 import url from 'node:url'
 
-import { drizzle } from 'drizzle-orm/postgres-js'
-import { migrate } from 'drizzle-orm/postgres-js/migrator'
-import postgres from 'postgres'
+import { drizzle } from 'drizzle-orm/node-postgres'
+import { migrate } from 'drizzle-orm/node-postgres/migrator'
+import pkg from 'pg'
+
+const { Pool } = pkg
 
 console.log('Migrating...')
-
-if (!process.env.FLYIO_DATABASE_URL)
-  throw new Error('Missing FLYIO_DATABASE_URL')
-
-const migrationClient = postgres(process.env.FLYIO_DATABASE_URL, { max: 1 })
 
 const migrationsFolder = path.join(
   url.fileURLToPath(import.meta.url),
@@ -20,9 +17,16 @@ const migrationsFolder = path.join(
   '/drizzle',
 )
 
-void migrate(drizzle(migrationClient), {
-  migrationsFolder,
-  // eslint-disable-next-line unicorn/prefer-top-level-await
-}).then(() => {
-  console.log('Migration completed.')
+const pool = new Pool({
+  host: `${process.env.FLYIO_POSTGRES_HOST}`,
+  user: process.env.FLYIO_POSTGRES_USER,
+  password: process.env.FLYIO_POSTGRES_PASSWORD,
+  max: 1,
 })
+
+// @ts-ignore
+await migrate(drizzle(pool), {
+  migrationsFolder,
+})
+
+console.log('Migration completed.')
