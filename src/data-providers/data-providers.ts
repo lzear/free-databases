@@ -7,6 +7,7 @@ export const DataProviders = {
   fauna: 'FaunaDB',
   turso: 'Turso',
   railway: 'Railway',
+  aiven: 'Aiven',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders

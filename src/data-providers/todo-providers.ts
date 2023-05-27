@@ -1,6 +1,7 @@
 import type { Todo } from '@prisma/client'
 import React from 'react'
 
+import { aiven } from './aiven'
 import { cookie } from './cookie'
 import { DataProviderSlug } from './data-providers'
 import { fauna } from './fauna'
@@ -33,6 +34,7 @@ export const todoProvidersArray = [
   fauna,
   turso,
   railway,
+  aiven,
 ] as const
 
 export const todoProviders = Object.fromEntries(
