@@ -60,6 +60,7 @@ export const TodoComponent = ({
         <DisplayDate todo={todo} />
         <div style={{ display: 'flex', gap: 5 }} data-testid="todos-done">
           <ToggleDone todo={todo} provider={provider} />
+          {/* @ts-expect-error ??? TS2786: 'Button' cannot be used as a JSX component. Its instance type 'Button' is not a valid JSX element. */}
           <Button
             size="small"
             outlined
