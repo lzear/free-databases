@@ -6,7 +6,7 @@ import { InputTextarea } from 'primereact/inputtextarea'
 import { useState, useTransition } from 'react'
 
 import { Card } from '../components/card'
-import { DataProvider } from '../data-providers/data-providers'
+import { DataProviderSlug } from '../data-providers/data-providers'
 import buttonStyle from './buttons.module.css'
 import { create, rename } from './todo-buttons.actions'
 import style from './todo-edit.module.css'
@@ -16,7 +16,7 @@ export const TodoEdit = ({
   editTodo,
   cancel,
 }: {
-  provider: DataProvider
+  provider: DataProviderSlug
   editTodo?: Todo
   cancel?: () => void
 }) => {

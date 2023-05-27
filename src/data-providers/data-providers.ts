@@ -1,7 +1,10 @@
 export const DataProviders = {
-  PlanetScale: 'PlanetScale',
-  Supabase: 'Supabase',
-  Cookie: 'Cookie',
+  planetscale: 'PlanetScale',
+  supabase: 'Supabase',
+  cookie: 'Cookie',
 } as const
 
-export type DataProvider = keyof typeof DataProviders
+export type DataProviderSlug = keyof typeof DataProviders
+
+export const isDataProviderSlug = (slug: unknown): slug is DataProviderSlug =>
+  typeof slug === 'string' && Object.keys(DataProviders).includes(slug)

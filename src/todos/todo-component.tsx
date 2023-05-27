@@ -6,7 +6,7 @@ import { Button } from 'primereact/button'
 import React, { useState } from 'react'
 
 import { Card } from '../components/card'
-import { DataProvider } from '../data-providers/data-providers'
+import { DataProviderSlug } from '../data-providers/data-providers'
 import buttonStyle from './buttons.module.css'
 import { randomColor } from './color'
 import { DeleteForever, ToggleDone } from './todo-buttons'
@@ -37,7 +37,7 @@ export const TodoComponent = ({
   provider,
 }: {
   todo: Todo
-  provider: DataProvider
+  provider: DataProviderSlug
 }) => {
   const [isEditing, setEditing] = useState(false)
   if (isEditing)

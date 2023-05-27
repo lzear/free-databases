@@ -4,13 +4,13 @@ import type { Todo } from '@prisma/client'
 import { Button } from 'primereact/button'
 import { useTransition } from 'react'
 
-import { DataProvider } from '../data-providers/data-providers'
+import { DataProviderSlug } from '../data-providers/data-providers'
 import buttonStyle from './buttons.module.css'
 import { deleteForever, toggleDone } from './todo-buttons.actions'
 
 type Props = {
   todo: Todo
-  provider: DataProvider
+  provider: DataProviderSlug
 }
 
 const sharedProps = (loading: boolean) =>

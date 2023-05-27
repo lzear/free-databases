@@ -13,9 +13,19 @@ const getTodos = async (): Promise<Todo[]> => {
   return []
 }
 
-export const Cookie = {
+export const cookie = {
   name: 'Cookie',
-  path: '/cookie',
+  slug: 'cookie',
+  icon: 'cookie.png',
+  description: (
+    <p>
+      A cookie is a small text file stored on a user&apos;s browser by a website
+      to remember information or preferences. It enables stateful interactions,
+      like tracking user sessions, retaining login information, or personalizing
+      user experiences.
+    </p>
+  ),
+  isAvailable: true,
   create: async (name) => {
     const todos = await getTodos()
     const newTodos = [
