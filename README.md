@@ -18,6 +18,7 @@ Small todo app meant to test Next 13 features, backend/data providers, UI compon
   - [x] [Railway](https://railway.app/)
   - [x] [Supabase](https://supabase.com/)
   - [x] [Turso](https://turso.tech/)
+  - [x] [Upstash](https://upstash.com/)
   - [x] [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
 - [ ] Find a React component library that works well with Next 13
 - [ ] Stop sharing the todos across users

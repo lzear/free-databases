@@ -11,6 +11,7 @@ export const DataProviders = {
   cockroach: 'CockroachDB',
   neon: 'Neon',
   elephant: 'Elephant',
+  upstash: 'Upstash',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders
