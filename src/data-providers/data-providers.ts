@@ -10,6 +10,7 @@ export const DataProviders = {
   aiven: 'Aiven',
   cockroach: 'CockroachDB',
   neon: 'Neon',
+  elephant: 'Elephant',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders

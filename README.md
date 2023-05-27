@@ -10,6 +10,7 @@ Small todo app meant to test Next 13 features, backend/data providers, UI compon
   - [x] Cookies as a data store (no third party)
   - [x] [Aiven](https://aiven.io/)
   - [x] [CockroachDB](https://www.cockroachlabs.com/)
+  - [x] [ElephantSQL](https://www.elephantsql.com/)
   - [x] [FaunaDB](https://fauna.com/)
   - [x] [Fly.io](https://fly.io/)
   - [x] [Neon](https://neon.tech/)

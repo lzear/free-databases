@@ -5,6 +5,7 @@ import { aiven } from './aiven'
 import { cockroach } from './cockroach'
 import { cookie } from './cookie'
 import { DataProviderSlug } from './data-providers'
+import { elephant } from './elephant'
 import { fauna } from './fauna'
 import { flyio } from './fly-io'
 import { neon } from './neon'
@@ -39,6 +40,7 @@ export const todoProvidersArray = [
   aiven,
   cockroach,
   neon,
+  elephant,
 ] as const
 
 export const todoProviders = Object.fromEntries(
