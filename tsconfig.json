@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es5", // set to es2022 to run scripts
     "lib": [
       "dom",
       "dom.iterable",
