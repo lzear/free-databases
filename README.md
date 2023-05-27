@@ -42,6 +42,11 @@ You can set up backends with the following providers:
     SUPABASE_KEY = 'eyJ*******'
    ```
 
+### Fly.io + PostGraphile
+
+1. Create a Fly.io account
+2. Create a `todos` database
+
 ## Test
 
 * Unit tests: `yarn test`
