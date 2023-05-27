@@ -5,6 +5,7 @@ export const DataProviders = {
   'fly-io': 'Fly.io',
   vercel: 'Vercel',
   fauna: 'FaunaDB',
+  turso: 'Turso',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders

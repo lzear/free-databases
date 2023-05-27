@@ -7,6 +7,7 @@ import { fauna } from './fauna'
 import { flyio } from './fly-io'
 import { planetscale } from './planetscale'
 import { supabase } from './supabase'
+import { turso } from './turso'
 import { vercel } from './vercel'
 
 export type TodoProvider = {
@@ -29,6 +30,7 @@ export const todoProvidersArray = [
   flyio,
   vercel,
   fauna,
+  turso,
 ] as const
 
 export const todoProviders = Object.fromEntries(

@@ -19,7 +19,6 @@ export const TodoList = async ({ done, provider, title, prepend }: Props) => {
   if (!todoProvider) throw new Error(`Unknown provider ${provider}`)
 
   const todos = await todoProvider.getTodos(done)
-  console.log('🦺 antoinelog todos', todos);
 
   return (
     <>
