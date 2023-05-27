@@ -3,6 +3,7 @@ import React from 'react'
 
 import { cookie } from './cookie'
 import { DataProviderSlug } from './data-providers'
+import { flyio } from './fly-io'
 import { planetscale } from './planetscale'
 import { supabase } from './supabase'
 
@@ -19,7 +20,12 @@ export type TodoProvider = {
   setDone: (todoId: string, value: boolean) => Promise<any>
 }
 
-export const todoProvidersArray = [cookie, planetscale, supabase] as const
+export const todoProvidersArray = [
+  cookie,
+  planetscale,
+  supabase,
+  flyio,
+] as const
 
 export const todoProviders = Object.fromEntries(
   todoProvidersArray.map((p) => [p.slug, p]),

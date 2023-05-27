@@ -2,6 +2,7 @@ export const DataProviders = {
   planetscale: 'PlanetScale',
   supabase: 'Supabase',
   cookie: 'Cookie',
+  'fly-io': 'Fly.io',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders
