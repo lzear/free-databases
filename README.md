@@ -36,11 +36,29 @@ You can set up backends with the following providers:
        constraint todos_pkey primary key (id)
      ) tablespace pg_default;
    ```
-3. Ensure your `.env` has:
+3. Add to your `.env`:
     ```
     SUPABASE_URL = 'https://******.supabase.co'
     SUPABASE_KEY = 'eyJ*******'
    ```
+   
+### Fly.io + Drizzle
+
+1. Create a Fly.io account
+2. Add to your `.env`:
+    ```
+    FLYIO_DATABASE_URL = "postgres://appuser:******@yourflyapp.fly.dev/todos"
+   ```
+3. Create the `todos` table
+
+### Vercel Postgres
+
+1. Create a database in Vercel (See [Vercel Postgres quickstart](https://vercel.com/docs/storage/vercel-postgres/quickstart))
+2. Add to your `.env`
+   ```
+   VERCEL_POSTGRES_URL="postgres://default:******@blabla-pooler.us-east-1.postgres.vercel-storage.com/verceldb"
+   ```
+3. Create the `todos` table
 
 ## Test
 
