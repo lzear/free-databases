@@ -13,6 +13,7 @@
     "drizzle-migrate-railway": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/railway/migrate.ts",
     "drizzle-migrate-aiven": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/aiven/migrate.ts",
     "drizzle-migrate-cockroach": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/cockroach/migrate.ts",
+    "drizzle-migrate-neon": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/neon/migrate.ts",
     "drizzle-migrate-vercel": "dotenv -e .env node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/vercel/migrate.ts",
     "drizzle-migrate-turso": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/turso/migrate.ts",
     "build": "prisma generate && next build",

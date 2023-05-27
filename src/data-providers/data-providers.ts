@@ -9,6 +9,7 @@ export const DataProviders = {
   railway: 'Railway',
   aiven: 'Aiven',
   cockroach: 'CockroachDB',
+  neon: 'Neon',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders

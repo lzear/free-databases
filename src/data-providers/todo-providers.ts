@@ -12,6 +12,7 @@ import { railway } from './railway'
 import { supabase } from './supabase'
 import { turso } from './turso'
 import { vercel } from './vercel'
+import { neon } from './neon'
 
 export type TodoProvider = {
   name: string
@@ -37,6 +38,7 @@ export const todoProvidersArray = [
   railway,
   aiven,
   cockroach,
+  neon,
 ] as const
 
 export const todoProviders = Object.fromEntries(
