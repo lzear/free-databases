@@ -3,6 +3,7 @@ import React from 'react'
 
 import { cookie } from './cookie'
 import { DataProviderSlug } from './data-providers'
+import { fauna } from './fauna'
 import { flyio } from './fly-io'
 import { planetscale } from './planetscale'
 import { supabase } from './supabase'
@@ -27,6 +28,7 @@ export const todoProvidersArray = [
   supabase,
   flyio,
   vercel,
+  fauna,
 ] as const
 
 export const todoProviders = Object.fromEntries(

@@ -19,7 +19,11 @@ const displayTime = (dateTime: Date | string) => (
   </time>
 )
 const DisplayDate = ({ todo }: { todo: Todo }) => {
-  if (Math.abs(differenceInSeconds(todo.createdAt, todo.updatedAt)) < 30)
+  if (
+    Math.abs(
+      differenceInSeconds(new Date(todo.createdAt), new Date(todo.updatedAt)),
+    ) < 30
+  )
     return (
       <p className={styles.date}>Created {displayTime(todo.createdAt)} ago.</p>
     )
