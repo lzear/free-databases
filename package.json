@@ -10,6 +10,7 @@
     "drizzle-generate-postgres": "drizzle-kit generate:pg --schema=./src/data-providers/drizzle/postgres/index.ts",
     "drizzle-generate-sqlite": "drizzle-kit generate:sqlite --schema=./src/data-providers/drizzle/sqlite/index.ts",
     "drizzle-migrate-flyio": "dotenv -e .env node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/flyio/migrate.ts",
+    "drizzle-migrate-railway": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/railway/migrate.ts",
     "drizzle-migrate-vercel": "dotenv -e .env node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/vercel/migrate.ts",
     "drizzle-migrate-turso": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/turso/migrate.ts",
     "build": "prisma generate && next build",

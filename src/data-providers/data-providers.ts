@@ -6,6 +6,7 @@ export const DataProviders = {
   vercel: 'Vercel',
   fauna: 'FaunaDB',
   turso: 'Turso',
+  railway: 'Railway',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders

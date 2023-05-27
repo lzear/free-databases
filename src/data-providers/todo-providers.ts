@@ -6,6 +6,7 @@ import { DataProviderSlug } from './data-providers'
 import { fauna } from './fauna'
 import { flyio } from './fly-io'
 import { planetscale } from './planetscale'
+import { railway } from './railway'
 import { supabase } from './supabase'
 import { turso } from './turso'
 import { vercel } from './vercel'
@@ -31,6 +32,7 @@ export const todoProvidersArray = [
   vercel,
   fauna,
   turso,
+  railway,
 ] as const
 
 export const todoProviders = Object.fromEntries(
