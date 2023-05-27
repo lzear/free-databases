@@ -19,6 +19,7 @@ const migrationsFolder = path.join(
   '../../../..',
   '/drizzle',
 )
+
 void migrate(drizzle(migrationClient), {
   migrationsFolder,
   // eslint-disable-next-line unicorn/prefer-top-level-await

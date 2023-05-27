@@ -3,6 +3,7 @@ export const DataProviders = {
   supabase: 'Supabase',
   cookie: 'Cookie',
   'fly-io': 'Fly.io',
+  vercel: 'Vercel',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders

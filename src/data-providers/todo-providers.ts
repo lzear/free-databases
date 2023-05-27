@@ -6,6 +6,7 @@ import { DataProviderSlug } from './data-providers'
 import { flyio } from './fly-io'
 import { planetscale } from './planetscale'
 import { supabase } from './supabase'
+import { vercel } from './vercel'
 
 export type TodoProvider = {
   name: string
@@ -25,6 +26,7 @@ export const todoProvidersArray = [
   planetscale,
   supabase,
   flyio,
+  vercel,
 ] as const
 
 export const todoProviders = Object.fromEntries(

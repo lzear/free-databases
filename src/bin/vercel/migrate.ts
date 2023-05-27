@@ -4,10 +4,12 @@ import { createPool, db } from '@vercel/postgres'
 
 console.log('Migrating...')
 
+// @ts-ignore
 const client = await createPool({
   connectionString: process.env.VERCEL_POSTGRES_URL,
 })
 
+// @ts-ignore
 await client.sql`
 
 DROP TABLE IF EXISTS "todos";
