@@ -9,10 +9,10 @@ import postgres from 'postgres'
 
 console.log('Migrating...')
 
-if (!process.env.AIVEN_DATABASE_URL)
-  throw new Error('Missing AIVEN_DATABASE_URL')
+if (!process.env.AIVEN_POSTGRES_URL)
+  throw new Error('Missing AIVEN_POSTGRES_URL')
 
-const migrationClient = postgres(process.env.AIVEN_DATABASE_URL, { max: 1 })
+const migrationClient = postgres(process.env.AIVEN_POSTGRES_URL, { max: 1 })
 
 const migrationsFolder = path.join(
   url.fileURLToPath(import.meta.url),
