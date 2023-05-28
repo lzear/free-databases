@@ -1,6 +1,15 @@
 import { TodoProvider } from '../todo-providers'
 import { pgImplementation } from '../with-pg'
 
+const config = process.env.AIVEN_POSTGRES_URL &&
+  process.env.AIVEN_POSTGRES_CA_CERT && {
+    connectionString: process.env.AIVEN_POSTGRES_URL,
+    ssl: {
+      rejectUnauthorized: false,
+      ca: process.env.AIVEN_POSTGRES_CA_CERT,
+    },
+  }
+
 export const aiven = {
   name: 'Aiven',
   slug: 'aiven',
@@ -14,14 +23,5 @@ export const aiven = {
       more.
     </p>
   ),
-  server:
-    process.env.AIVEN_POSTGRES_URL && process.env.AIVEN_POSTGRES_CA_CERT
-      ? pgImplementation({
-          connectionString: process.env.AIVEN_POSTGRES_URL,
-          ssl: {
-            rejectUnauthorized: true,
-            ca: process.env.AIVEN_POSTGRES_CA_CERT,
-          },
-        })
-      : undefined,
+  server: pgImplementation(config),
 } satisfies TodoProvider

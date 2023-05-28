@@ -14,18 +14,13 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Error({
   error,
   reset,
-  params,
-  ...r
 }: {
   error: Error
   reset: () => void
-  params?: { database?: string }
 }) {
   const slug = useParams()['database'] as string | undefined
 
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.log('12')
     console.error(error)
   }, [error])
   return (
@@ -42,7 +37,7 @@ export default function Error({
           </h2>
         </div>
       </NextDescription>
-      <div>
+      <div style={{ marginTop: 90 }}>
         <h2>Something went wrong!</h2>
 
         <button

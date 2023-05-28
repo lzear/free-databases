@@ -8,12 +8,13 @@ import { TodoProvider } from '../todo-providers'
 
 const clientSingleton = new SingletonUnique(() => {
   if (!process.env.UPSTASH_REDIS_URL || !process.env.UPSTASH_REDIS_TOKEN)
-    throw new Error('Missing UPSTASH_REDIS_URL')
+    throw new Error('Missing UPSTASH_REDIS_URL or UPSTASH_REDIS_TOKEN')
 
-  return new Redis({
+  const config = {
     url: process.env.UPSTASH_REDIS_URL,
     token: process.env.UPSTASH_REDIS_TOKEN,
-  })
+  }
+  return new Redis(config)
 })
 
 const redis = () => clientSingleton.get()
@@ -37,9 +38,9 @@ export const upstash = {
             })
           },
           getTodos: async (done) => {
-            const tt = await redis().hgetall<Record<string, Todo>>('todos')
-            if (!tt) return []
-            return Object.values(tt)
+            const results = await redis().hgetall<Record<string, Todo>>('todos')
+            if (!results) return []
+            return Object.values(results)
               .filter((todo) => todo.done === done)
               .map((todo) => ({
                 ...todo,
