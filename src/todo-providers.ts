@@ -3,6 +3,7 @@ import React from 'react'
 import type { DatabaseSlug } from './databases'
 import { aiven } from './databases/aiven'
 import { cockroach } from './databases/cockroach'
+import { convex } from './databases/convex'
 import { cookie } from './databases/cookie'
 import { elephant } from './databases/elephant'
 import { fauna } from './databases/fauna'
@@ -42,6 +43,7 @@ export const todoProvidersArray = [
   upstash,
   yugabyte,
   tidbcloud,
+  convex,
 ] as const
 
 export const todoProviders = Object.fromEntries(

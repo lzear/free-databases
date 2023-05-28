@@ -14,6 +14,7 @@ export const Databases = {
   upstash: 'Upstash',
   yugabyte: 'Yugabyte',
   tidbcloud: 'TiDB Cloud',
+  convex: 'Convex',
 } as const
 
 export type DatabaseSlug = keyof typeof Databases
