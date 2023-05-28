@@ -15,6 +15,7 @@ import { supabase } from './data-providers/supabase'
 import { turso } from './data-providers/turso'
 import { upstash } from './data-providers/upstash'
 import { vercel } from './data-providers/vercel'
+import { yugabyte } from './data-providers/yugabyte'
 
 export type TodoProvider = {
   name: string
@@ -43,6 +44,7 @@ export const todoProvidersArray = [
   neon,
   elephant,
   upstash,
+  yugabyte,
 ] as const
 
 export const todoProviders = Object.fromEntries(

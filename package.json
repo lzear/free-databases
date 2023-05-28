@@ -14,6 +14,7 @@
     "drizzle-generate-postgres": "drizzle-kit generate:pg --schema=./src/drizzle-schema/postgres/index.ts",
     "drizzle-generate-sqlite": "drizzle-kit generate:sqlite --schema=./src/drizzle-schema/sqlite/index.ts",
     "drizzle-migrate-flyio": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/flyio/migrate.ts",
+    "drizzle-migrate-yugabyte": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/yugabyte/migrate.ts",
     "drizzle-migrate-railway": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/railway/migrate.ts",
     "drizzle-migrate-aiven": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/aiven/migrate.ts",
     "drizzle-migrate-cockroach": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/cockroach/migrate.ts",

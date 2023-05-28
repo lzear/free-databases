@@ -17,12 +17,21 @@ const migrationsFolder = path.join(
   '/drizzle',
 )
 
-const pool = new Pool({
-  host: process.env.FLYIO_POSTGRES_HOST,
-  user: process.env.FLYIO_POSTGRES_USER,
-  password: process.env.FLYIO_POSTGRES_PASSWORD,
+const c = {
+  host: process.env.YUGABYTE_POSTGRES_HOST,
+  user: process.env.YUGABYTE_POSTGRES_USER,
+  database: 'yugabyte',
+  port: 5433,
+  password: process.env.YUGABYTE_POSTGRES_PASSWORD,
   max: 1,
-})
+  ssl: {
+    rejectUnauthorized: true,
+    ca: process.env.YUGABYTE_POSTGRES_CA_CERT,
+  },
+}
+console.log('🦺 antoinelog c', c)
+
+const pool = new Pool(c)
 
 // @ts-ignore
 await migrate(drizzle(pool), {

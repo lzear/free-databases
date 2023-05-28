@@ -20,7 +20,7 @@ const drizzleClientSingleton = new SingletonUnique(() => {
     )
 
   const pool = new Pool({
-    host: `${process.env.FLYIO_POSTGRES_HOST}`,
+    host: process.env.FLYIO_POSTGRES_HOST,
     user: process.env.FLYIO_POSTGRES_USER,
     password: process.env.FLYIO_POSTGRES_PASSWORD,
   })

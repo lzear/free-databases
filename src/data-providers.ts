@@ -12,6 +12,7 @@ export const DataProviders = {
   neon: 'Neon',
   elephant: 'Elephant',
   upstash: 'Upstash',
+  yugabyte: 'Yugabyte',
 } as const
 
 export type DataProviderSlug = keyof typeof DataProviders
