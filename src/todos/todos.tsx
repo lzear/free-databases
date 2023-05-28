@@ -3,13 +3,13 @@ import 'server-only'
 import React from 'react'
 
 import { CardGrid } from '../components/card'
-import { DataProviderSlug } from '../data-providers'
+import { DatabaseSlug } from '../databases'
 import { todoProviders } from '../todo-providers'
 import { TodoComponent } from './todo-component'
 
 type Props = {
   done: boolean
-  provider: DataProviderSlug
+  provider: DatabaseSlug
   title: string
   prepend?: React.ReactNode
 }

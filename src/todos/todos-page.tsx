@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import { NextDescription } from '../components/next-description'
-import { DataProviderSlug } from '../data-providers'
+import { DatabaseSlug } from '../databases'
 import { todoProviders } from '../todo-providers'
 import { TodoEdit } from './todo-edit'
 import { TodoList } from './todos'
@@ -13,7 +13,7 @@ import styles from './todos-page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const TodosPage = ({ provider }: { provider: DataProviderSlug }) => {
+export const TodosPage = ({ provider }: { provider: DatabaseSlug }) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error(`Unknown provider ${provider}`)
   return (

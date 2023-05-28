@@ -1,25 +1,25 @@
 import type { Todo } from '@prisma/client'
 import React from 'react'
 
-import { DataProviderSlug } from './data-providers'
-import { aiven } from './data-providers/aiven'
-import { cockroach } from './data-providers/cockroach'
-import { cookie } from './data-providers/cookie'
-import { elephant } from './data-providers/elephant'
-import { fauna } from './data-providers/fauna'
-import { flyio } from './data-providers/fly-io'
-import { neon } from './data-providers/neon'
-import { planetscale } from './data-providers/planetscale'
-import { railway } from './data-providers/railway'
-import { supabase } from './data-providers/supabase'
-import { turso } from './data-providers/turso'
-import { upstash } from './data-providers/upstash'
-import { vercel } from './data-providers/vercel'
-import { yugabyte } from './data-providers/yugabyte'
+import { DatabaseSlug } from './databases'
+import { aiven } from './databases/aiven'
+import { cockroach } from './databases/cockroach'
+import { cookie } from './databases/cookie'
+import { elephant } from './databases/elephant'
+import { fauna } from './databases/fauna'
+import { flyio } from './databases/fly-io'
+import { neon } from './databases/neon'
+import { planetscale } from './databases/planetscale'
+import { railway } from './databases/railway'
+import { supabase } from './databases/supabase'
+import { turso } from './databases/turso'
+import { upstash } from './databases/upstash'
+import { vercel } from './databases/vercel'
+import { yugabyte } from './databases/yugabyte'
 
 export type TodoProvider = {
   name: string
-  slug: DataProviderSlug
+  slug: DatabaseSlug
   icon: string
   description: React.ReactNode
   isAvailable: boolean
@@ -49,7 +49,4 @@ export const todoProvidersArray = [
 
 export const todoProviders = Object.fromEntries(
   todoProvidersArray.map((p) => [p.slug, p]),
-) satisfies Record<string, TodoProvider> as Record<
-  DataProviderSlug,
-  TodoProvider
->
+) satisfies Record<string, TodoProvider> as Record<DatabaseSlug, TodoProvider>

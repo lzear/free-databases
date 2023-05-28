@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 
 import { NextDescription } from '../../components/next-description'
-import { DataProviders, isDataProviderSlug } from '../../data-providers'
+import { Databases, isDatabaseSlug } from '../../databases'
 import styles from '../../todos/todos-page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,9 +19,9 @@ export default function Error({
 }: {
   error: Error
   reset: () => void
-  params?: { 'data-provider'?: string }
+  params?: { database?: string }
 }) {
-  const slug = useParams()['data-provider'] as string | undefined
+  const slug = useParams()['database'] as string | undefined
 
   useEffect(() => {
     // Log the error to an error reporting service
@@ -32,8 +32,8 @@ export default function Error({
     <main className={styles.main}>
       <NextDescription>
         <div>
-          {isDataProviderSlug(slug) && (
-            <p>Todolist using data from {DataProviders[slug]}</p>
+          {isDatabaseSlug(slug) && (
+            <p>Todolist using data from {Databases[slug]}</p>
           )}
           <h2 className={styles.descriptionH2}>
             <Link href="/" className={inter.className}>

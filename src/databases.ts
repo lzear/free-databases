@@ -1,4 +1,4 @@
-export const DataProviders = {
+export const Databases = {
   planetscale: 'PlanetScale',
   supabase: 'Supabase',
   cookie: 'Cookie',
@@ -15,7 +15,7 @@ export const DataProviders = {
   yugabyte: 'Yugabyte',
 } as const
 
-export type DataProviderSlug = keyof typeof DataProviders
+export type DatabaseSlug = keyof typeof Databases
 
-export const isDataProviderSlug = (slug: unknown): slug is DataProviderSlug =>
-  typeof slug === 'string' && Object.keys(DataProviders).includes(slug)
+export const isDatabaseSlug = (slug: unknown): slug is DatabaseSlug =>
+  typeof slug === 'string' && Object.keys(Databases).includes(slug)
