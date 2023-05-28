@@ -1,3 +1,4 @@
+
 # Free Databases 🙌
 
 Small todo app testing different database providers.
@@ -7,25 +8,24 @@ Small todo app testing different database providers.
 ## Features / Todos
 
 - Integrations:
-  - [x] [Aiven](https://aiven.io/)
-  - [x] [CockroachDB](https://www.cockroachlabs.com/)
-  - [x] [Convex](https://www.convex.dev/)
-  - [x] [ElephantSQL](https://www.elephantsql.com/)
-  - [x] [FaunaDB](https://fauna.com/)
-  - [x] [Fly.io](https://fly.io/)
-  - [x] [Neon](https://neon.tech/)
-  - [x] [PlanetScale](https://planetscale.com/)
-  - [x] [Railway](https://railway.app/)
-  - [x] [Supabase](https://supabase.com/)
-  - [x] [TiDB Cloud](https://tidbcloud.com/)
-  - [x] [Turso](https://turso.tech/)
-  - [x] [Upstash](https://upstash.com/)
-  - [x] [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
-  - [x] [Yugabyte](https://www.yugabyte.com/)
-  - [x] Cookies as a data store (no third party)
+    - [x] [Aiven](https://aiven.io/)
+    - [x] [CockroachDB](https://www.cockroachlabs.com/)
+    - [x] [Convex](https://www.convex.dev/)
+    - [x] [ElephantSQL](https://www.elephantsql.com/)
+    - [x] [FaunaDB](https://fauna.com/)
+    - [x] [Fly.io](https://fly.io/)
+    - [x] [Neon](https://neon.tech/)
+    - [x] [PlanetScale](https://planetscale.com/)
+    - [x] [Railway](https://railway.app/)
+    - [x] [Supabase](https://supabase.com/)
+    - [x] [TiDB Cloud](https://tidbcloud.com/)
+    - [x] [Turso](https://turso.tech/)
+    - [x] [Upstash](https://upstash.com/)
+    - [x] [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
+    - [x] [Yugabyte](https://www.yugabyte.com/)
+    - [x] Cookies as a data store (no third party)
 - [ ] Find a React component library that works well with Next 13
 - [ ] Stop sharing the todos across users
-
 
 ## Getting started locally
 
@@ -64,3 +64,10 @@ CREATE TABLE `Todo` (
 
 * Unit tests: `yarn test`
 * Cypress tests: `yarn e2e`
+
+## Known issues
+
+* Took a shortcut and set `NODE_TLS_REJECT_UNAUTHORIZED=0`, which is probably not something that you should do in
+  production.
+* For Fly.io, I am allocating to database to an IPv4 address, which costs $2/month. I could not find a way to use the
+  free IPv6 address with NextJS+Vercel.
