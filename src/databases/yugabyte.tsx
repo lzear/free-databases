@@ -15,16 +15,9 @@ export const yugabyte = {
     </p>
   ),
   server:
-    process.env.YUGABYTE_POSTGRES_HOST &&
-    process.env.YUGABYTE_POSTGRES_USER &&
-    process.env.YUGABYTE_POSTGRES_CA_CERT &&
-    process.env.YUGABYTE_POSTGRES_PASSWORD
+    process.env.YUGABYTE_POSTGRES_URL && process.env.YUGABYTE_POSTGRES_CA_CERT
       ? pgImplementation({
-          host: process.env.YUGABYTE_POSTGRES_HOST,
-          user: process.env.YUGABYTE_POSTGRES_USER,
-          database: 'yugabyte',
-          port: 5433,
-          password: process.env.YUGABYTE_POSTGRES_PASSWORD,
+          connectionString: process.env.YUGABYTE_POSTGRES_URL,
           ssl: {
             rejectUnauthorized: true,
             ca: process.env.YUGABYTE_POSTGRES_CA_CERT,
