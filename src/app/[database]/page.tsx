@@ -3,6 +3,8 @@ import React from 'react'
 import { isDatabaseSlug } from '../../databases'
 import { TodosPage } from '../../todos/todos-page'
 
+export const dynamic = 'force-static'
+
 export default function DataPage(props: {
   params?: { database?: string }
   searchParams: {}
