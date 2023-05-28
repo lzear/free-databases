@@ -4,6 +4,7 @@ import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 
 import { Inter } from 'next/font/google'
+import PlausibleProvider from 'next-plausible'
 import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,6 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <PlausibleProvider domain="free-databases.vercel.app" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )

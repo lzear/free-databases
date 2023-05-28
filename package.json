@@ -64,6 +64,7 @@
     "lodash": "^4.17.21",
     "nanoid": "^4.0.2",
     "next": "13.4.4",
+    "next-plausible": "^3.7.2",
     "node-gyp": "^9.3.1",
     "node-postgres": "^0.6.2",
     "pg": "^8.11.0",
