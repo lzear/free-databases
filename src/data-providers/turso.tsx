@@ -3,9 +3,9 @@ import { desc, eq } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/libsql'
 import { nanoid } from 'nanoid'
 
+import { todos } from '../drizzle-schema/sqlite'
 import { SingletonUnique } from '../singletons'
-import { todos } from './drizzle/sqlite'
-import { TodoProvider } from './todo-providers'
+import { TodoProvider } from '../todo-providers'
 
 const drizzleClientSingleton = new SingletonUnique(() => {
   if (!process.env.TURSO_DATABASE_URL || !process.env.TURSO_SECRET_TOKEN)

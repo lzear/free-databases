@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import { nanoid } from 'nanoid'
 
 import { SingletonUnique } from '../singletons'
-import { TodoProvider } from './todo-providers'
+import { TodoProvider } from '../todo-providers'
 
 const prisma = new SingletonUnique(() => new PrismaClient())
 

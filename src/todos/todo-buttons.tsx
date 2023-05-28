@@ -4,7 +4,7 @@ import type { Todo } from '@prisma/client'
 import { Button } from 'primereact/button'
 import { useTransition } from 'react'
 
-import { DataProviderSlug } from '../data-providers/data-providers'
+import { DataProviderSlug } from '../data-providers'
 import buttonStyle from './buttons.module.css'
 import { deleteForever, toggleDone } from './todo-buttons.actions'
 

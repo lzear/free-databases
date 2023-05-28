@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { NextDescription } from '../components/next-description'
-import { todoProvidersArray } from '../data-providers/todo-providers'
+import { todoProvidersArray } from '../todo-providers'
 import styles from './page.module.css'
 
 export default function Home() {

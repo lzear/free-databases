@@ -3,8 +3,8 @@ import 'server-only'
 import React from 'react'
 
 import { CardGrid } from '../components/card'
-import { DataProviderSlug } from '../data-providers/data-providers'
-import { todoProviders } from '../data-providers/todo-providers'
+import { DataProviderSlug } from '../data-providers'
+import { todoProviders } from '../todo-providers'
 import { TodoComponent } from './todo-component'
 
 type Props = {

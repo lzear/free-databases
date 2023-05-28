@@ -2,7 +2,7 @@ import type { Todo } from '@prisma/client'
 import { nanoid } from 'nanoid'
 import { cookies } from 'next/headers'
 
-import { TodoProvider } from './todo-providers'
+import { TodoProvider } from '../todo-providers'
 
 const KEY = 'todos'
 

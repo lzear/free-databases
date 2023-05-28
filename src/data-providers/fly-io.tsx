@@ -3,9 +3,9 @@ import { drizzle } from 'drizzle-orm/node-postgres'
 import { nanoid } from 'nanoid'
 import pkg from 'pg'
 
+import { todos } from '../drizzle-schema/postgres'
 import { SingletonUnique } from '../singletons'
-import { todos } from './drizzle/postgres'
-import { TodoProvider } from './todo-providers'
+import { TodoProvider } from '../todo-providers'
 
 const { Pool } = pkg
 

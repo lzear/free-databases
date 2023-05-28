@@ -3,8 +3,8 @@
 import type { Todo } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
 
-import { DataProviderSlug } from '../data-providers/data-providers'
-import { todoProviders } from '../data-providers/todo-providers'
+import { DataProviderSlug } from '../data-providers'
+import { todoProviders } from '../todo-providers'
 
 export async function create(provider: DataProviderSlug, todoName: string) {
   const todoProvider = todoProviders[provider]

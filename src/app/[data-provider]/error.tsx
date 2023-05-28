@@ -6,10 +6,7 @@ import { useParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 
 import { NextDescription } from '../../components/next-description'
-import {
-  DataProviders,
-  isDataProviderSlug,
-} from '../../data-providers/data-providers'
+import { DataProviders, isDataProviderSlug } from '../../data-providers'
 import styles from '../../todos/todos-page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })

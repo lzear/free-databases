@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { isDataProviderSlug } from '../../data-providers/data-providers'
+import { isDataProviderSlug } from '../../data-providers'
 import { TodosPage } from '../../todos/todos-page'
 
 export default function DataPage(props: {

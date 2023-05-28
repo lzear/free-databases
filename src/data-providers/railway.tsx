@@ -3,9 +3,9 @@ import { drizzle } from 'drizzle-orm/postgres-js'
 import { nanoid } from 'nanoid'
 import postgres from 'postgres'
 
+import { todos } from '../drizzle-schema/postgres'
 import { SingletonUnique } from '../singletons'
-import { todos } from './drizzle/postgres'
-import { TodoProvider } from './todo-providers'
+import { TodoProvider } from '../todo-providers'
 
 const drizzleClientSingleton = new SingletonUnique(() => {
   if (!process.env.RAILWAY_DATABASE_URL)

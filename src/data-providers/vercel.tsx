@@ -3,9 +3,9 @@ import { desc, eq } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/vercel-postgres'
 import { nanoid } from 'nanoid'
 
+import { todos } from '../drizzle-schema/postgres'
 import { SingletonUnique } from '../singletons'
-import { todos } from './drizzle/postgres'
-import { TodoProvider } from './todo-providers'
+import { TodoProvider } from '../todo-providers'
 
 const drizzleClientSingleton = new SingletonUnique(() =>
   drizzle(
