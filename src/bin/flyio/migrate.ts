@@ -7,7 +7,7 @@ import { drizzle } from 'drizzle-orm/node-postgres'
 import { migrate } from 'drizzle-orm/node-postgres/migrator'
 import pkg from 'pg'
 
-const { Pool } = pkg
+const { Client } = pkg
 
 console.log('Migrating...')
 
@@ -17,12 +17,7 @@ const migrationsFolder = path.join(
   '/drizzle',
 )
 
-const pool = new Pool({
-  host: process.env.FLYIO_POSTGRES_HOST,
-  user: process.env.FLYIO_POSTGRES_USER,
-  password: process.env.FLYIO_POSTGRES_PASSWORD,
-  max: 1,
-})
+const pool = new Client(process.env.FLYIO_POSTGRES_URL)
 
 // @ts-ignore
 await migrate(drizzle(pool), {

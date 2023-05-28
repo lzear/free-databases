@@ -4,16 +4,7 @@ import { pgImplementation } from '../with-pg'
 export const flyio = {
   name: 'Fly.io',
   slug: 'fly-io',
-  server:
-    process.env.FLYIO_POSTGRES_HOST &&
-    process.env.FLYIO_POSTGRES_USER &&
-    process.env.FLYIO_POSTGRES_PASSWORD
-      ? pgImplementation({
-          host: process.env.FLYIO_POSTGRES_HOST,
-          user: process.env.FLYIO_POSTGRES_USER,
-          password: process.env.FLYIO_POSTGRES_PASSWORD,
-        })
-      : undefined,
+  server: pgImplementation(process.env.FLYIO_POSTGRES_URL),
   icon: 'fly-io.webp',
   description: (
     <p>
