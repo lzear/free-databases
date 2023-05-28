@@ -29,39 +29,43 @@ export const supabase = {
       application development.
     </p>
   ),
-  isAvailable: Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_KEY),
-  create: async (name) =>
-    supabaseClient.get().from('todos').insert({
-      id: nanoid(),
-      name,
-      done: false,
-    }),
-  getTodos: async (done) => {
-    const { data } = await supabaseClient
-      .get()
-      .from('todos')
-      .select()
-      .eq('done', done)
-    return (
-      (data?.map((todo) => ({
-        ...todo,
-        createdAt: new Date(todo.created_at),
-        updatedAt: new Date(todo.updated_at),
-      })) as Todo[]) || []
-    )
-  },
-  setDone: async (id, done) =>
-    supabaseClient
-      .get()
-      .from('todos')
-      .update({ done, updated_at: new Date().toISOString() })
-      .match({ id }),
-  rename: async (id, name) =>
-    supabaseClient
-      .get()
-      .from('todos')
-      .update({ name, updated_at: new Date().toISOString() })
-      .match({ id }),
-  deleteForever: async (id) =>
-    supabaseClient.get().from('todos').delete().match({ id }),
+  server:
+    process.env.SUPABASE_URL && process.env.SUPABASE_KEY
+      ? {
+          create: async (name) =>
+            supabaseClient.get().from('todos').insert({
+              id: nanoid(),
+              name,
+              done: false,
+            }),
+          getTodos: async (done) => {
+            const { data } = await supabaseClient
+              .get()
+              .from('todos')
+              .select()
+              .eq('done', done)
+            return (
+              (data?.map((todo) => ({
+                ...todo,
+                createdAt: new Date(todo.created_at),
+                updatedAt: new Date(todo.updated_at),
+              })) as Todo[]) || []
+            )
+          },
+          setDone: async (id, done) =>
+            supabaseClient
+              .get()
+              .from('todos')
+              .update({ done, updated_at: new Date().toISOString() })
+              .match({ id }),
+          rename: async (id, name) =>
+            supabaseClient
+              .get()
+              .from('todos')
+              .update({ name, updated_at: new Date().toISOString() })
+              .match({ id }),
+          deleteForever: async (id) =>
+            supabaseClient.get().from('todos').delete().match({ id }),
+        }
+      : undefined,
 } satisfies TodoProvider

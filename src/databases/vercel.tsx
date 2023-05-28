@@ -20,7 +20,6 @@ const drizzleClient = () => drizzleClientSingleton.get()
 export const vercel = {
   name: 'Vercel Postgres',
   slug: 'vercel',
-  isAvailable: Boolean(process.env.VERCEL_POSTGRES_URL),
   icon: 'vercel.svg',
   description: (
     <p>
@@ -28,21 +27,26 @@ export const vercel = {
       Vercel Functions and your frontend framework.
     </p>
   ),
-  create: async (name) =>
-    drizzleClient().insert(todos).values({
-      id: nanoid(),
-      name,
-      done: false,
-    }),
-  getTodos: async (done) =>
-    drizzleClient()
-      .select()
-      .from(todos)
-      .where(eq(todos.done, done))
-      .orderBy(desc(todos.createdAt)),
-  setDone: (id, done) =>
-    drizzleClient().update(todos).set({ done }).where(eq(todos.id, id)),
-  rename: (id, name) =>
-    drizzleClient().update(todos).set({ name }).where(eq(todos.id, id)),
-  deleteForever: (id) => drizzleClient().delete(todos).where(eq(todos.id, id)),
+  server: process.env.VERCEL_POSTGRES_URL
+    ? {
+        create: async (name) =>
+          drizzleClient().insert(todos).values({
+            id: nanoid(),
+            name,
+            done: false,
+          }),
+        getTodos: async (done) =>
+          drizzleClient()
+            .select()
+            .from(todos)
+            .where(eq(todos.done, done))
+            .orderBy(desc(todos.createdAt)),
+        setDone: (id, done) =>
+          drizzleClient().update(todos).set({ done }).where(eq(todos.id, id)),
+        rename: (id, name) =>
+          drizzleClient().update(todos).set({ name }).where(eq(todos.id, id)),
+        deleteForever: (id) =>
+          drizzleClient().delete(todos).where(eq(todos.id, id)),
+      }
+    : undefined,
 } satisfies TodoProvider

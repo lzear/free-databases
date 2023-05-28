@@ -17,29 +17,32 @@ export const planetscale = {
       global data distribution.
     </p>
   ),
-  isAvailable: Boolean(process.env.PLANETSCALE_DATABASE_URL),
-  create: (name) =>
-    prisma.get().todo.create({
-      data: {
-        id: nanoid(),
-        name,
-        done: false,
-      },
-    }),
-  getTodos: (done) =>
-    prisma.get().todo.findMany({
-      where: { done },
-      orderBy: { createdAt: 'desc' },
-    }),
-  setDone: (id, done) =>
-    prisma.get().todo.update({
-      where: { id },
-      data: { done },
-    }),
-  rename: (id, name) =>
-    prisma.get().todo.update({
-      where: { id },
-      data: { name },
-    }),
-  deleteForever: (id) => prisma.get().todo.delete({ where: { id } }),
+  server: process.env.PLANETSCALE_DATABASE_URL
+    ? {
+        create: (name) =>
+          prisma.get().todo.create({
+            data: {
+              id: nanoid(),
+              name,
+              done: false,
+            },
+          }),
+        getTodos: (done) =>
+          prisma.get().todo.findMany({
+            where: { done },
+            orderBy: { createdAt: 'desc' },
+          }),
+        setDone: (id, done) =>
+          prisma.get().todo.update({
+            where: { id },
+            data: { done },
+          }),
+        rename: (id, name) =>
+          prisma.get().todo.update({
+            where: { id },
+            data: { name },
+          }),
+        deleteForever: (id) => prisma.get().todo.delete({ where: { id } }),
+      }
+    : undefined,
 } satisfies TodoProvider

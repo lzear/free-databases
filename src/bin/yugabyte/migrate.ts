@@ -29,7 +29,6 @@ const c = {
     ca: process.env.YUGABYTE_POSTGRES_CA_CERT,
   },
 }
-console.log('🦺 antoinelog c', c)
 
 const pool = new Pool(c)
 

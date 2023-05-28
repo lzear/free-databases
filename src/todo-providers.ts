@@ -16,18 +16,14 @@ import { turso } from './databases/turso'
 import { upstash } from './databases/upstash'
 import { vercel } from './databases/vercel'
 import { yugabyte } from './databases/yugabyte'
+import { ServerImplementation } from './todos-server/type'
 
 export type TodoProvider = {
   name: string
   slug: DatabaseSlug
   icon: string
   description: React.ReactNode
-  isAvailable: boolean
-  getTodos: (done: boolean) => Promise<Array<Todo>>
-  create: (todoName: string) => Promise<any>
-  deleteForever: (todoId: string) => Promise<any>
-  rename: (todoId: string, name: string) => Promise<any>
-  setDone: (todoId: string, value: boolean) => Promise<any>
+  server?: ServerImplementation | undefined
 }
 
 export const todoProvidersArray = [

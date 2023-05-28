@@ -10,7 +10,7 @@ export async function create(provider: DatabaseSlug, todoName: string) {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
 
-  await todoProvider.create(todoName)
+  await todoProvider.server?.create(todoName)
   revalidatePath(`/${todoProvider.slug}`)
 }
 
@@ -22,7 +22,7 @@ export async function rename(
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
 
-  await todoProvider.rename(todoId, todoName)
+  await todoProvider.server?.rename(todoId, todoName)
   revalidatePath(`/${todoProvider.slug}`)
 }
 
@@ -30,7 +30,7 @@ export const toggleDone = async (provider: DatabaseSlug, todo: Todo) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
   const { id, done } = todo
-  await todoProvider.setDone(id, !done)
+  await todoProvider.server?.setDone(id, !done)
   revalidatePath(`/${todoProvider.slug}`)
 }
 
@@ -38,6 +38,6 @@ export const deleteForever = async (provider: DatabaseSlug, todo: Todo) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
   const { id, done } = todo
-  await todoProvider.deleteForever(id)
+  await todoProvider.server?.deleteForever(id)
   revalidatePath(`/${todoProvider.slug}`)
 }

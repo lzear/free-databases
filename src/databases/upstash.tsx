@@ -21,9 +21,57 @@ const redis = () => clientSingleton.get()
 export const upstash = {
   name: 'Upstash',
   slug: 'upstash',
-  isAvailable: Boolean(
-    process.env.UPSTASH_REDIS_URL && process.env.UPSTASH_REDIS_TOKEN,
-  ),
+  server:
+    process.env.UPSTASH_REDIS_URL && process.env.UPSTASH_REDIS_TOKEN
+      ? {
+          create: (name) => {
+            const id = nanoid()
+            return redis().hmset('todos', {
+              [id]: JSON.stringify({
+                id,
+                name,
+                done: false,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
+              }),
+            })
+          },
+          getTodos: async (done) => {
+            const tt = await redis().hgetall<Record<string, Todo>>('todos')
+            if (!tt) return []
+            return Object.values(tt)
+              .filter((todo) => todo.done === done)
+              .map((todo) => ({
+                ...todo,
+                updatedAt: new Date(todo.updatedAt),
+                createdAt: new Date(todo.createdAt),
+              }))
+          },
+          setDone: async (id, done) => {
+            const todo = await redis().hget<Todo>('todos', id)
+            if (!todo) return
+            return redis().hmset('todos', {
+              [id]: JSON.stringify({
+                ...todo,
+                done,
+                updatedAt: new Date().toISOString(),
+              }),
+            })
+          },
+          rename: async (id, name) => {
+            const todo = await redis().hget<Todo>('todos', id)
+            if (!todo) return
+            return redis().hmset('todos', {
+              [id]: JSON.stringify({
+                ...todo,
+                name,
+                updatedAt: new Date().toISOString(),
+              }),
+            })
+          },
+          deleteForever: (id) => redis().hdel('todos', id),
+        }
+      : undefined,
   icon: 'upstash.png',
   description: (
     <p>
@@ -33,50 +81,4 @@ export const upstash = {
       for many Redis features.
     </p>
   ),
-  create: async (name) => {
-    const id = nanoid()
-    return redis().hmset('todos', {
-      [id]: JSON.stringify({
-        id,
-        name,
-        done: false,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      }),
-    })
-  },
-  getTodos: async (done) => {
-    const tt = await redis().hgetall<Record<string, Todo>>('todos')
-    if (!tt) return []
-    return Object.values(tt)
-      .filter((todo) => todo.done === done)
-      .map((todo) => ({
-        ...todo,
-        updatedAt: new Date(todo.updatedAt),
-        createdAt: new Date(todo.createdAt),
-      }))
-  },
-  setDone: async (id, done) => {
-    const todo = await redis().hget<Todo>('todos', id)
-    if (!todo) return
-    await redis().hmset('todos', {
-      [id]: JSON.stringify({
-        ...todo,
-        done,
-        updatedAt: new Date().toISOString(),
-      }),
-    })
-  },
-  rename: async (id, name) => {
-    const todo = await redis().hget<Todo>('todos', id)
-    if (!todo) return
-    await redis().hmset('todos', {
-      [id]: JSON.stringify({
-        ...todo,
-        name,
-        updatedAt: new Date().toISOString(),
-      }),
-    })
-  },
-  deleteForever: async (id) => redis().hdel('todos', id),
 } satisfies TodoProvider

@@ -18,16 +18,16 @@ export const TodoList = async ({ done, provider, title, prepend }: Props) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error(`Unknown provider ${provider}`)
 
-  const todos = await todoProvider.getTodos(done)
+  const todos = await todoProvider.server?.getTodos(done)
 
   return (
     <>
-      {(prepend || todos.length > 0) && (
+      {(prepend || (todos && todos.length > 0)) && (
         <h2 style={{ margin: '40px 0 20px' }}>{title}</h2>
       )}
       <CardGrid>
         {prepend}
-        {todos.map((todo) => (
+        {todos?.map((todo) => (
           <TodoComponent key={todo.id} todo={todo} provider={provider} />
         ))}
       </CardGrid>

@@ -1,11 +1,9 @@
-import { desc, eq } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/postgres-js'
-import { nanoid } from 'nanoid'
 import postgres from 'postgres'
 
-import { todos } from '../drizzle-schema/postgres'
 import { SingletonUnique } from '../singletons'
 import { TodoProvider } from '../todo-providers'
+import { pgImplementation } from '../with-pg'
 
 const drizzleClientSingleton = new SingletonUnique(() => {
   if (!process.env.RAILWAY_DATABASE_URL)
@@ -21,7 +19,7 @@ const drizzleClient = () => drizzleClientSingleton.get()
 export const railway = {
   name: 'Railway',
   slug: 'railway',
-  isAvailable: Boolean(process.env.RAILWAY_DATABASE_URL),
+  server: pgImplementation(process.env.RAILWAY_DATABASE_URL),
   icon: 'railway.svg',
   description: (
     <p>
@@ -30,21 +28,4 @@ export const railway = {
       to the cloud.
     </p>
   ),
-  create: (name) =>
-    drizzleClient().insert(todos).values({
-      id: nanoid(),
-      name,
-      done: false,
-    }),
-  getTodos: async (done) =>
-    drizzleClient()
-      .select()
-      .from(todos)
-      .where(eq(todos.done, done))
-      .orderBy(desc(todos.createdAt)),
-  setDone: (id, done) =>
-    drizzleClient().update(todos).set({ done }).where(eq(todos.id, id)),
-  rename: (id, name) =>
-    drizzleClient().update(todos).set({ name }).where(eq(todos.id, id)),
-  deleteForever: (id) => drizzleClient().delete(todos).where(eq(todos.id, id)),
 } satisfies TodoProvider

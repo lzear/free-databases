@@ -26,45 +26,48 @@ export const fauna = {
       web, mobile, and serverless applications.
     </p>
   ),
-  isAvailable: Boolean(process.env.FAUNADB_SECRET),
-  create: (name) =>
-    client().query(
-      q.Create(q.Collection('todos'), {
-        data: {
-          name,
-          done: false,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
+  server: process.env.FAUNADB_SECRET
+    ? {
+        create: (name) =>
+          client().query(
+            q.Create(q.Collection('todos'), {
+              data: {
+                name,
+                done: false,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
+              },
+            }),
+          ),
+        getTodos: async (done) => {
+          const t = await client().query<{
+            data: { data: Todo; ref: typeof Ref }[]
+          }>(
+            q.Map(
+              q.Paginate(q.Match(q.Index('todos_by_done'), done)),
+              q.Lambda((x) => q.Get(x)),
+            ),
+          )
+          return t.data.map((x) => ({
+            ...x.data,
+            // @ts-ignore
+            id: x.ref.id as string,
+          }))
         },
-      }),
-    ),
-  getTodos: async (done) => {
-    const t = await client().query<{
-      data: { data: Todo; ref: typeof Ref }[]
-    }>(
-      q.Map(
-        q.Paginate(q.Match(q.Index('todos_by_done'), done)),
-        q.Lambda((x) => q.Get(x)),
-      ),
-    )
-    return t.data.map((x) => ({
-      ...x.data,
-      // @ts-ignore
-      id: x.ref.id as string,
-    }))
-  },
-  setDone: async (reference, done) =>
-    client().query(
-      q.Update(q.Ref(q.Collection('todos'), reference), {
-        data: { done },
-      }),
-    ),
-  rename: async (reference, name) =>
-    client().query(
-      q.Update(q.Ref(q.Collection('todos'), reference), {
-        data: { name },
-      }),
-    ),
-  deleteForever: async (reference) =>
-    client().query(q.Delete(q.Ref(q.Collection('todos'), reference))),
+        setDone: async (reference, done) =>
+          client().query(
+            q.Update(q.Ref(q.Collection('todos'), reference), {
+              data: { done },
+            }),
+          ),
+        rename: async (reference, name) =>
+          client().query(
+            q.Update(q.Ref(q.Collection('todos'), reference), {
+              data: { name },
+            }),
+          ),
+        deleteForever: async (reference) =>
+          client().query(q.Delete(q.Ref(q.Collection('todos'), reference))),
+      }
+    : undefined,
 } satisfies TodoProvider

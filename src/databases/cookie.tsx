@@ -25,53 +25,54 @@ export const cookie = {
       user experiences.
     </p>
   ),
-  isAvailable: true,
-  create: async (name) => {
-    const todos = await getTodos()
-    const newTodos = [
-      {
-        id: nanoid(),
-        name,
-        done: false,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      },
-      ...todos,
-    ]
+  server: {
+    create: async (name) => {
+      const todos = await getTodos()
+      const newTodos = [
+        {
+          id: nanoid(),
+          name,
+          done: false,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        },
+        ...todos,
+      ]
 
-    cookies().set(KEY, JSON.stringify(newTodos))
-  },
-  getTodos: async (done) => {
-    const todos = await getTodos()
-    return todos
-      .filter((todo) => todo.done === done)
-      .map((todo) => ({
-        ...todo,
-        updatedAt: new Date(todo.updatedAt),
-        createdAt: new Date(todo.createdAt),
-      }))
-  },
-  setDone: async (id, done) => {
-    const todos = await getTodos()
-    const newTodos = todos.map((todo) =>
-      todo.id === id
-        ? { ...todo, done, updatedAt: new Date().toISOString() }
-        : todo,
-    )
-    cookies().set(KEY, JSON.stringify(newTodos))
-  },
-  rename: async (id, name) => {
-    const todos = await getTodos()
-    const newTodos = todos.map((todo) =>
-      todo.id === id
-        ? { ...todo, name, updatedAt: new Date().toISOString() }
-        : todo,
-    )
-    cookies().set(KEY, JSON.stringify(newTodos))
-  },
-  deleteForever: async (id) => {
-    const todos = await getTodos()
-    const newTodos = todos.filter((todo) => todo.id !== id)
-    cookies().set(KEY, JSON.stringify(newTodos))
+      cookies().set(KEY, JSON.stringify(newTodos))
+    },
+    getTodos: async (done) => {
+      const todos = await getTodos()
+      return todos
+        .filter((todo) => todo.done === done)
+        .map((todo) => ({
+          ...todo,
+          updatedAt: new Date(todo.updatedAt),
+          createdAt: new Date(todo.createdAt),
+        }))
+    },
+    setDone: async (id, done) => {
+      const todos = await getTodos()
+      const newTodos = todos.map((todo) =>
+        todo.id === id
+          ? { ...todo, done, updatedAt: new Date().toISOString() }
+          : todo,
+      )
+      cookies().set(KEY, JSON.stringify(newTodos))
+    },
+    rename: async (id, name) => {
+      const todos = await getTodos()
+      const newTodos = todos.map((todo) =>
+        todo.id === id
+          ? { ...todo, name, updatedAt: new Date().toISOString() }
+          : todo,
+      )
+      cookies().set(KEY, JSON.stringify(newTodos))
+    },
+    deleteForever: async (id) => {
+      const todos = await getTodos()
+      const newTodos = todos.filter((todo) => todo.id !== id)
+      cookies().set(KEY, JSON.stringify(newTodos))
+    },
   },
 } satisfies TodoProvider

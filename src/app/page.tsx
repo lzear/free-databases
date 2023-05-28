@@ -41,7 +41,7 @@ export default function Home() {
 
       <div className={styles.grid}>
         {todoProvidersArray
-          .filter((tp) => tp.isAvailable)
+          .filter((tp) => tp.server)
           .map((tp) => (
             <Link key={tp.slug} href={`/${tp.slug}`} className={styles.card}>
               <h2>
