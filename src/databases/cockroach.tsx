@@ -1,23 +1,5 @@
-import { desc, eq } from 'drizzle-orm'
-import { drizzle } from 'drizzle-orm/postgres-js'
-import { nanoid } from 'nanoid'
-import postgres from 'postgres'
-
-import { todos } from '../drizzle-schema/postgres'
-import { SingletonUnique } from '../singletons'
 import { TodoProvider } from '../todo-providers'
 import { pgImplementation } from '../with-pg'
-
-const drizzleClientSingleton = new SingletonUnique(() => {
-  if (!process.env.COCKROACH_POSTGRES_URL)
-    throw new Error('Missing COCKROACH_POSTGRES_URL')
-
-  // for query purposes
-  const queryClient = postgres(process.env.COCKROACH_POSTGRES_URL)
-  return drizzle(queryClient)
-})
-
-const drizzleClient = () => drizzleClientSingleton.get()
 
 export const cockroach = {
   name: 'CockroachDB',

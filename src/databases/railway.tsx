@@ -1,20 +1,5 @@
-import { drizzle } from 'drizzle-orm/postgres-js'
-import postgres from 'postgres'
-
-import { SingletonUnique } from '../singletons'
 import { TodoProvider } from '../todo-providers'
 import { pgImplementation } from '../with-pg'
-
-const drizzleClientSingleton = new SingletonUnique(() => {
-  if (!process.env.RAILWAY_DATABASE_URL)
-    throw new Error('Missing RAILWAY_DATABASE_URL')
-
-  // for query purposes
-  const queryClient = postgres(process.env.RAILWAY_DATABASE_URL)
-  return drizzle(queryClient)
-})
-
-const drizzleClient = () => drizzleClientSingleton.get()
 
 export const railway = {
   name: 'Railway',

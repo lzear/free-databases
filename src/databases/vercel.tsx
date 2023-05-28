@@ -1,4 +1,4 @@
-import { createPool, sql } from '@vercel/postgres'
+import { createPool } from '@vercel/postgres'
 import { desc, eq } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/vercel-postgres'
 import { nanoid } from 'nanoid'
