@@ -13,6 +13,7 @@ export const Databases = {
   elephant: 'Elephant',
   upstash: 'Upstash',
   yugabyte: 'Yugabyte',
+  tidbcloud: 'TiDB Cloud',
 } as const
 
 export type DatabaseSlug = keyof typeof Databases

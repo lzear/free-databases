@@ -2,7 +2,7 @@ import type { Todo } from '@prisma/client'
 import { Client, query as q, Ref } from 'faunadb'
 
 import { SingletonUnique } from '../singletons'
-import { TodoProvider } from '../todo-providers'
+import { type TodoProvider } from '../todo-providers'
 
 const clientSingleton = new SingletonUnique(() => {
   if (!process.env.FAUNADB_SECRET) throw new Error('Missing FAUNADB_SECRET')
@@ -14,7 +14,7 @@ const clientSingleton = new SingletonUnique(() => {
 const client = () => clientSingleton.get()
 
 export const fauna = {
-  name: 'Fauna DB',
+  name: 'FaunaDB',
   slug: 'fauna',
   icon: 'fauna.svg',
   description: (

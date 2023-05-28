@@ -16,6 +16,7 @@ Small todo app testing different database providers.
   - [x] [PlanetScale](https://planetscale.com/)
   - [x] [Railway](https://railway.app/)
   - [x] [Supabase](https://supabase.com/)
+  - [x] [TiDB Cloud](https://tidbcloud.com/)
   - [x] [Turso](https://turso.tech/)
   - [x] [Upstash](https://upstash.com/)
   - [x] [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)

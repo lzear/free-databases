@@ -1,7 +1,6 @@
-import type { Todo } from '@prisma/client'
 import React from 'react'
 
-import { DatabaseSlug } from './databases'
+import type { DatabaseSlug } from './databases'
 import { aiven } from './databases/aiven'
 import { cockroach } from './databases/cockroach'
 import { cookie } from './databases/cookie'
@@ -12,11 +11,12 @@ import { neon } from './databases/neon'
 import { planetscale } from './databases/planetscale'
 import { railway } from './databases/railway'
 import { supabase } from './databases/supabase'
+import { tidbcloud } from './databases/tidbcloud'
 import { turso } from './databases/turso'
 import { upstash } from './databases/upstash'
 import { vercel } from './databases/vercel'
 import { yugabyte } from './databases/yugabyte'
-import { ServerImplementation } from './todos-server/type'
+import type { ServerImplementation } from './todos-server/type'
 
 export type TodoProvider = {
   name: string
@@ -41,6 +41,7 @@ export const todoProvidersArray = [
   elephant,
   upstash,
   yugabyte,
+  tidbcloud,
 ] as const
 
 export const todoProviders = Object.fromEntries(
