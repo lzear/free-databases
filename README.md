@@ -1,13 +1,12 @@
-# Todo List
+# Free Databases 🙌
 
-Small todo app meant to test Next 13 features, backend/data providers, UI components, etc...
+Small todo app testing different database providers.
 
-## [todos-lzear.vercel.app](https://todos-lzear.vercel.app)
+## [free-databases.vercel.app](https://free-databases.vercel.app/)
 
 ## Features / Todos
 
 - Integrations:
-  - [x] Cookies as a data store (no third party)
   - [x] [Aiven](https://aiven.io/)
   - [x] [CockroachDB](https://www.cockroachlabs.com/)
   - [x] [ElephantSQL](https://www.elephantsql.com/)
@@ -20,6 +19,8 @@ Small todo app meant to test Next 13 features, backend/data providers, UI compon
   - [x] [Turso](https://turso.tech/)
   - [x] [Upstash](https://upstash.com/)
   - [x] [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
+  - [x] [Yugabyte](https://www.yugabyte.com/)
+  - [x] Cookies as a data store (no third party)
 - [ ] Find a React component library that works well with Next 13
 - [ ] Stop sharing the todos across users
 
@@ -61,17 +62,3 @@ CREATE TABLE `Todo` (
 
 * Unit tests: `yarn test`
 * Cypress tests: `yarn e2e`
-
-## Screenshots
-
-### Home screen:
-
-![screenshot-1.png](screenshots/screenshot-1.png)
-
-### Todo list:
-
-![screenshot-2.png](screenshots/screenshot-2.png)
-
-### Cypress tests:
-
-![screenshot-3.png](screenshots/screenshot-3.png)
