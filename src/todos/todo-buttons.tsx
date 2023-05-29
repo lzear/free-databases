@@ -1,15 +1,15 @@
 'use client'
 
-import type { Todo } from '@prisma/client'
 import { Button } from 'primereact/button'
 import { useTransition } from 'react'
 
 import { DatabaseSlug } from '../databases'
+import type { TodoDto } from '../todos-server/type'
 import buttonStyle from './buttons.module.css'
 import { deleteForever, toggleDone } from './todo-buttons.actions'
 
 type Props = {
-  todo: Todo
+  todo: TodoDto
   provider: DatabaseSlug
 }
 

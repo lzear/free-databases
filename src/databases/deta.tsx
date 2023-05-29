@@ -1,8 +1,7 @@
-import type { Todo } from '@prisma/client'
 import { Deta } from 'deta'
 
 import { TodoProvider } from '../todo-providers'
-import { ServerImplementation } from '../todos-server/type'
+import type { ServerImplementation, Todo } from '../todos-server/type'
 
 const detaTodos = () => Deta().Base('todos')
 

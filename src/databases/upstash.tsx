@@ -1,10 +1,10 @@
-import { Todo } from '@prisma/client'
 import { Redis } from '@upstash/redis'
 import { nanoid } from 'nanoid'
 
 import { todos } from '../drizzle-schema/sqlite'
 import { SingletonUnique } from '../singletons'
 import { TodoProvider } from '../todo-providers'
+import type { Todo } from '../todos-server/type'
 
 const clientSingleton = new SingletonUnique(() => {
   if (!process.env.UPSTASH_REDIS_URL || !process.env.UPSTASH_REDIS_TOKEN)

@@ -1,12 +1,12 @@
-import type { Todo } from '@prisma/client'
 import { nanoid } from 'nanoid'
 import { cookies } from 'next/headers'
 
 import { TodoProvider } from '../todo-providers'
+import type { TodoDto } from '../todos-server/type'
 
 const KEY = 'todos'
 
-const getTodos = async (): Promise<Todo[]> => {
+const getTodos = async (): Promise<TodoDto[]> => {
   const cookiesList = cookies()
   const todosString = cookiesList.get(KEY)?.value
   if (todosString) return JSON.parse(todosString)
@@ -43,13 +43,7 @@ export const cookie = {
     },
     getTodos: async (done) => {
       const todos = await getTodos()
-      return todos
-        .filter((todo) => todo.done === done)
-        .map((todo) => ({
-          ...todo,
-          updatedAt: new Date(todo.updatedAt),
-          createdAt: new Date(todo.createdAt),
-        }))
+      return todos.filter((todo) => todo.done === done)
     },
     setDone: async (id, done) => {
       const todos = await getTodos()

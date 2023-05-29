@@ -1,9 +1,9 @@
-import type { Todo } from '@prisma/client'
 import { createClient } from '@supabase/supabase-js'
 import { nanoid } from 'nanoid'
 
 import { SingletonUnique } from '../singletons'
 import { TodoProvider } from '../todo-providers'
+import type { Todo } from '../todos-server/type'
 
 const supabaseClient = new SingletonUnique(() => {
   if (!process.env.SUPABASE_URL) throw new Error('Missing SUPABASE_URL')

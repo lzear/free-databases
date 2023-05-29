@@ -1,12 +1,12 @@
 'use client'
 
-import type { Todo } from '@prisma/client'
 import { Button } from 'primereact/button'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { useState, useTransition } from 'react'
 
 import { Card } from '../components/card'
 import { DatabaseSlug } from '../databases'
+import type { TodoDto } from '../todos-server/type'
 import buttonStyle from './buttons.module.css'
 import { create, rename } from './todo-buttons.actions'
 import style from './todo-edit.module.css'
@@ -17,7 +17,7 @@ export const TodoEdit = ({
   cancel,
 }: {
   provider: DatabaseSlug
-  editTodo?: Todo
+  editTodo?: TodoDto
   cancel?: () => void
 }) => {
   const [isPending, startTransition] = useTransition()

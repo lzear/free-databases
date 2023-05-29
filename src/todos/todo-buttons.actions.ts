@@ -1,10 +1,10 @@
 'use server'
 
-import type { Todo } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
 
 import { DatabaseSlug } from '../databases'
 import { todoProviders } from '../todo-providers'
+import type { TodoDto } from '../todos-server/type'
 
 const MAX_NAME_LENGTH = 200
 
@@ -29,7 +29,7 @@ export async function rename(provider: DatabaseSlug, id: string, name: string) {
   revalidatePath(`/${todoProvider.slug}`)
 }
 
-export const toggleDone = async (provider: DatabaseSlug, todo: Todo) => {
+export const toggleDone = async (provider: DatabaseSlug, todo: TodoDto) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
   const { id, done } = todo
@@ -38,7 +38,7 @@ export const toggleDone = async (provider: DatabaseSlug, todo: Todo) => {
   revalidatePath(`/${todoProvider.slug}`)
 }
 
-export const deleteForever = async (provider: DatabaseSlug, todo: Todo) => {
+export const deleteForever = async (provider: DatabaseSlug, todo: TodoDto) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
   const { id } = todo

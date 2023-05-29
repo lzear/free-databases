@@ -27,9 +27,7 @@ export default function ErrorComponent({
     <main className={styles.main}>
       <NextDescription>
         <div>
-          {isDatabaseSlug(slug) && (
-            <p>Todolist using data from {Databases[slug]}</p>
-          )}
+          {isDatabaseSlug(slug) && <p>CRUD demo using {Databases[slug]}</p>}
           <h2 className={styles.descriptionH2}>
             <Link href="/" className={inter.className}>
               <span>&lt;-</span> Home

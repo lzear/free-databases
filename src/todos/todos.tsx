@@ -5,6 +5,7 @@ import React from 'react'
 import { CardGrid } from '../components/card'
 import { DatabaseSlug } from '../databases'
 import { todoProviders } from '../todo-providers'
+import { todoToDto } from '../todos-server/type'
 import { TodoComponent } from './todo-component'
 
 type Props = {
@@ -28,7 +29,11 @@ export const TodoList = async ({ done, provider, title, prepend }: Props) => {
       <CardGrid>
         {prepend}
         {todos?.map((todo) => (
-          <TodoComponent key={todo.id} todo={todo} provider={provider} />
+          <TodoComponent
+            key={todo.id}
+            todo={todoToDto(todo)}
+            provider={provider}
+          />
         ))}
       </CardGrid>
     </>

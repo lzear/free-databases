@@ -1,12 +1,12 @@
 'use client'
 
-import type { Todo } from '@prisma/client'
 import { differenceInSeconds, formatDistance, formatISO } from 'date-fns'
 import { Button } from 'primereact/button'
 import React, { useState } from 'react'
 
 import { Card } from '../components/card'
 import { DatabaseSlug } from '../databases'
+import type { Todo, TodoDto } from '../todos-server/type'
 import buttonStyle from './buttons.module.css'
 import { randomColor } from './color'
 import { DeleteForever, ToggleDone } from './todo-buttons'
@@ -18,7 +18,7 @@ const displayTime = (dateTime: Date | string) => (
     {formatDistance(new Date(dateTime), new Date())}
   </time>
 )
-const DisplayDate = ({ todo }: { todo: Todo }) => {
+const DisplayDate = ({ todo }: { todo: Todo | TodoDto }) => {
   if (
     Math.abs(
       differenceInSeconds(new Date(todo.createdAt), new Date(todo.updatedAt)),
@@ -40,7 +40,7 @@ export const TodoComponent = ({
   todo,
   provider,
 }: {
-  todo: Todo
+  todo: TodoDto
   provider: DatabaseSlug
 }) => {
   const [isEditing, setEditing] = useState(false)
