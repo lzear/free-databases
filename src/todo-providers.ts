@@ -30,8 +30,8 @@ export type TodoProvider = {
   server?: ServerImplementation | undefined
 }
 
-export const todoProvidersArray = [
-  cookie,
+export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
+  // cookie,
   planetscale,
   supabase,
   flyio,
@@ -50,7 +50,9 @@ export const todoProvidersArray = [
   deta,
   bitio,
   xata,
-] as const
+]
+
+const todoProvidersArray = [...todoProvidersArrayWithoutCookie, cookie]
 
 export const todoProviders = Object.fromEntries(
   todoProvidersArray.map((p) => [p.slug, p]),
