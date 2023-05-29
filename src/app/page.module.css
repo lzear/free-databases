@@ -5,6 +5,8 @@
   align-items: center;
   padding: 4rem;
   min-height: 100vh;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .main h1 {
@@ -21,9 +23,7 @@
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, minmax(25%, auto));
-  width: var(--max-width);
-  max-width: 100%;
-  justify-items: center;
+  width: 100%;
 }
 
 .card {
@@ -127,13 +127,14 @@
     grid-template-columns: 1fr;
     margin-bottom: 120px;
     text-align: center;
+    justify-items: center;
   }
 
   .card {
     max-width: 450px;
     /*padding: 1rem 1rem;*/
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   .card p {
     text-align: center;
