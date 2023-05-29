@@ -1,6 +1,6 @@
-# Free Databases 🙌
+# Free Serverless Databases 🙌
 
-Testing different free database providers with a small todo-list implementation: [free-databases.vercel.app](https://free-databases.vercel.app/)
+Testing different free serverless database providers with a small todo-list implementation: [free-databases.vercel.app](https://free-databases.vercel.app/)
 
 [![issues welcome](https://badgers.space/badge/issues/welcome/green?corner_radius=s)](#)
 [![PRs welcome](https://badgers.space/badge/PRs/welcome/green?corner_radius=s)](#)
