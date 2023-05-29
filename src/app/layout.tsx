@@ -14,10 +14,6 @@ export const metadata = {
   description: 'Some data storage costing nothing',
   authors: [{ name: 'Antoine Clausse', url: 'https://www.elzear.de/' }],
   creator: 'Antoine Clausse',
-  icons: {
-    icon: { url: '/favicon.png', type: 'image/png' },
-    shortcut: { url: '/favicon.png', type: 'image/png' },
-  },
   keywords: [
     'database',
     'databases',
