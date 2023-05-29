@@ -11,6 +11,7 @@ Small todo app testing different database providers.
     - [x] [Aiven](https://aiven.io/)
     - [x] [CockroachDB](https://www.cockroachlabs.com/)
     - [x] [Convex](https://www.convex.dev/)
+    - [x] [Deta](https://deta.space/)
     - [x] [ElephantSQL](https://www.elephantsql.com/)
     - [x] [FaunaDB](https://fauna.com/)
     - [x] [Fly.io](https://fly.io/)

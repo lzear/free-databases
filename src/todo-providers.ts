@@ -5,6 +5,7 @@ import { aiven } from './databases/aiven'
 import { cockroach } from './databases/cockroach'
 import { convex } from './databases/convex'
 import { cookie } from './databases/cookie'
+import { deta } from './databases/deta'
 import { elephant } from './databases/elephant'
 import { fauna } from './databases/fauna'
 import { flyio } from './databases/fly-io'
@@ -44,6 +45,7 @@ export const todoProvidersArray = [
   yugabyte,
   tidbcloud,
   convex,
+  deta,
 ] as const
 
 export const todoProviders = Object.fromEntries(

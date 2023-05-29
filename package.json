@@ -48,6 +48,7 @@
     "convex": "^0.14.1",
     "cypress": "12.13.0",
     "date-fns": "^2.30.0",
+    "deta": "^1.1.0",
     "dotenv-cli": "^7.2.1",
     "drizzle-kit": "^0.18.1",
     "drizzle-orm": "^0.26.1",
