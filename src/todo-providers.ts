@@ -2,6 +2,7 @@ import React from 'react'
 
 import type { DatabaseSlug } from './databases'
 import { aiven } from './databases/aiven'
+import { bitio } from './databases/bitio'
 import { cockroach } from './databases/cockroach'
 import { convex } from './databases/convex'
 import { cookie } from './databases/cookie'
@@ -46,6 +47,7 @@ export const todoProvidersArray = [
   tidbcloud,
   convex,
   deta,
+  bitio,
 ] as const
 
 export const todoProviders = Object.fromEntries(

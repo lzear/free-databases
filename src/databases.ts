@@ -16,6 +16,7 @@ export const Databases = {
   tidbcloud: 'TiDB Cloud',
   convex: 'Convex',
   deta: 'Deta',
+  'bit-io': 'Bit.io',
 } as const
 
 export type DatabaseSlug = keyof typeof Databases

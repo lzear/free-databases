@@ -19,6 +19,7 @@ export const metadata = {
     'databases',
     'Postgres',
     'Aiven',
+    'Bit.io',
     'CockroachDB',
     'Convex',
     'Deta',

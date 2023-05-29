@@ -9,6 +9,7 @@ Testing different free database providers with a small todo-list implementation:
 
 ## Featured providers
 - [Aiven](https://aiven.io/)
+- [Bit.io](https://bit.io/)
 - [CockroachDB](https://www.cockroachlabs.com/)
 - [Convex](https://www.convex.dev/)
 - [Deta](https://deta.space/)
