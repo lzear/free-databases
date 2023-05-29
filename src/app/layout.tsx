@@ -21,11 +21,11 @@ export const metadata = {
   keywords: [
     'database',
     'databases',
-    'free',
-    'free tier',
     'Postgres',
     'Aiven',
     'CockroachDB',
+    'Convex',
+    'Deta',
     'ElephantSQL',
     'FaunaDB',
     'Fly.io',
@@ -33,10 +33,14 @@ export const metadata = {
     'PlanetScale',
     'Railway',
     'Supabase',
+    'TiDB',
     'Turso',
     'Upstash',
     'Vercel',
     'Yugabyte',
+    'serverless',
+    'free',
+    'free tier',
   ],
 }
 

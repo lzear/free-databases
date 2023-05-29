@@ -1,32 +1,31 @@
-
 # Free Databases 🙌
 
-Small todo app testing different database providers.
+Testing different free database providers with a small todo-list implementation: [free-databases.vercel.app](https://free-databases.vercel.app/)
 
-## [free-databases.vercel.app](https://free-databases.vercel.app/)
+[![issues welcome](https://badgers.space/badge/issues/welcome/green?corner_radius=s)](#)
+[![PRs welcome](https://badgers.space/badge/PRs/welcome/green?corner_radius=s)](#)
+[![MIT](https://badgers.space/badge/license/MIT/blue?corner_radius=s)](#)
 
-## Features / Todos
 
-- Integrations:
-    - [x] [Aiven](https://aiven.io/)
-    - [x] [CockroachDB](https://www.cockroachlabs.com/)
-    - [x] [Convex](https://www.convex.dev/)
-    - [x] [Deta](https://deta.space/)
-    - [x] [ElephantSQL](https://www.elephantsql.com/)
-    - [x] [FaunaDB](https://fauna.com/)
-    - [x] [Fly.io](https://fly.io/)
-    - [x] [Neon](https://neon.tech/)
-    - [x] [PlanetScale](https://planetscale.com/)
-    - [x] [Railway](https://railway.app/)
-    - [x] [Supabase](https://supabase.com/)
-    - [x] [TiDB Cloud](https://tidbcloud.com/)
-    - [x] [Turso](https://turso.tech/)
-    - [x] [Upstash](https://upstash.com/)
-    - [x] [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
-    - [x] [Yugabyte](https://www.yugabyte.com/)
-    - [x] Cookies as a data store (no third party)
-- [ ] Find a React component library that works well with Next 13
-- [ ] Stop sharing the todos across users
+## Featured providers
+- [Aiven](https://aiven.io/)
+- [CockroachDB](https://www.cockroachlabs.com/)
+- [Convex](https://www.convex.dev/)
+- [Deta](https://deta.space/)
+- [ElephantSQL](https://www.elephantsql.com/)
+- [FaunaDB](https://fauna.com/)
+- [Fly.io](https://fly.io/)
+- [Neon](https://neon.tech/)
+- [PlanetScale](https://planetscale.com/)
+- [Railway](https://railway.app/)
+- [Supabase](https://supabase.com/)
+- [TiDB Cloud](https://tidbcloud.com/)
+- [Turso](https://turso.tech/)
+- [Upstash](https://upstash.com/)
+- [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
+- [Yugabyte](https://www.yugabyte.com/)
+- Cookies as a data store (no third party)
+- Please open a PR or an issue to suggest more!
 
 ## Getting started locally
 
@@ -66,9 +65,24 @@ CREATE TABLE `Todo` (
 * Unit tests: `yarn test`
 * Cypress tests: `yarn e2e`
 
-## Known issues
+## Thanks
+
+* All the providers for providing free tiers
+* Vercel too, also for the generous free tier
+
+## Known issues / be aware / miscellaneous
 
 * Took a shortcut and set `NODE_TLS_REJECT_UNAUTHORIZED=0`, which is probably not something that you should do in
   production.
 * For Fly.io, I am allocating to database to an IPv4 address, which costs $2/month. I could not find a way to use the
   free IPv6 address with NextJS+Vercel.
+* Using Next.js app directory, I couldn't find a way to nicely define special `export const dynamic = '...'`
+  or `export const fetchCache = '...'`. It forced me to copy some folders (`convex`, `cookie`, `deta`), it would be nice
+  if this could be avoided.
+* Databases descriptions are taken from any place I could find them or AI-generated, they might not be very accurate. 
+
+## Todos
+
+- [ ] Find a React component library that works well with Next 13
+- [ ] Stop sharing the todos across users
+- [ ] Add this into [🕶️ Awesome](https://github.com/sindresorhus/awesome) or somewhere
