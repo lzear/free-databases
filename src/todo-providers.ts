@@ -18,6 +18,7 @@ import { tidbcloud } from './databases/tidbcloud'
 import { turso } from './databases/turso'
 import { upstash } from './databases/upstash'
 import { vercel } from './databases/vercel'
+import { xata } from './databases/xata'
 import { yugabyte } from './databases/yugabyte'
 import type { ServerImplementation } from './todos-server/type'
 
@@ -48,6 +49,7 @@ export const todoProvidersArray = [
   convex,
   deta,
   bitio,
+  xata,
 ] as const
 
 export const todoProviders = Object.fromEntries(

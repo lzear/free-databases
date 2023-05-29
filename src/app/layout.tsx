@@ -34,6 +34,7 @@ export const metadata = {
     'Turso',
     'Upstash',
     'Vercel',
+    'Xata',
     'Yugabyte',
     'serverless',
     'free',

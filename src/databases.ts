@@ -16,6 +16,7 @@ export const Databases = {
   tidbcloud: 'TiDB Cloud',
   convex: 'Convex',
   deta: 'Deta',
+  xata: 'Xata',
   'bit-io': 'Bit.io',
 } as const
 

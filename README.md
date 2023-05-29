@@ -24,6 +24,7 @@ Testing different free database providers with a small todo-list implementation:
 - [Turso](https://turso.tech/)
 - [Upstash](https://upstash.com/)
 - [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
+- [Xata](https://xata.io/)
 - [Yugabyte](https://www.yugabyte.com/)
 - Cookies as a data store (no third party)
 - Please open a PR or an issue to suggest more!
