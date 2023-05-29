@@ -3,12 +3,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 4rem;
   min-height: 100vh;
 }
 
 .main h1 {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .code {
@@ -22,10 +23,12 @@
   grid-template-columns: repeat(4, minmax(25%, auto));
   width: var(--max-width);
   max-width: 100%;
+  justify-items: center;
 }
 
 .card {
-  padding: 1rem 1.2rem;
+  min-width: 0;
+  padding: 1.428571rem 1.2rem;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
@@ -40,10 +43,12 @@
 .card h2 {
   font-weight: 600;
   margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
 }
 .card h2 img {
   margin-right: 10px;
-  float: left;
+  /*float: left;*/
 }
 
 .card p {
@@ -110,6 +115,10 @@
 
 /* Mobile */
 @media (max-width: 700px) {
+    .main {
+        padding: 0.5rem;
+      margin: auto;
+    }
   .content {
     padding: 4rem;
   }
@@ -117,15 +126,21 @@
   .grid {
     grid-template-columns: 1fr;
     margin-bottom: 120px;
-    max-width: 320px;
     text-align: center;
   }
 
   .card {
-    padding: 1rem 2.5rem;
+    max-width: 450px;
+    /*padding: 1rem 1rem;*/
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .card p {
+    text-align: center;
   }
 
   .card h2 {
+    justify-content: center;
     margin-bottom: 0.5rem;
   }
 

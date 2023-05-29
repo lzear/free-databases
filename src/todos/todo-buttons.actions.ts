@@ -6,23 +6,26 @@ import { revalidatePath } from 'next/cache'
 import { DatabaseSlug } from '../databases'
 import { todoProviders } from '../todo-providers'
 
-export async function create(provider: DatabaseSlug, todoName: string) {
+const MAX_NAME_LENGTH = 200
+
+export async function create(provider: DatabaseSlug, name: string) {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
 
-  await todoProvider.server?.create(todoName)
+  await todoProvider.server?.create(name.slice(0, Math.max(0, MAX_NAME_LENGTH)))
   revalidatePath(`/${todoProvider.slug}`)
 }
 
-export async function rename(
-  provider: DatabaseSlug,
-  todoId: string,
-  todoName: string,
-) {
+export async function rename(provider: DatabaseSlug, id: string, name: string) {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
 
-  await todoProvider.server?.rename(todoId, todoName)
+  if (!id) throw new Error('Need id')
+
+  await todoProvider.server?.rename(
+    id,
+    name.slice(0, Math.max(0, MAX_NAME_LENGTH)),
+  )
   revalidatePath(`/${todoProvider.slug}`)
 }
 
@@ -30,6 +33,7 @@ export const toggleDone = async (provider: DatabaseSlug, todo: Todo) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
   const { id, done } = todo
+  if (!id) throw new Error('Need id')
   await todoProvider.server?.setDone(id, !done)
   revalidatePath(`/${todoProvider.slug}`)
 }
@@ -37,7 +41,8 @@ export const toggleDone = async (provider: DatabaseSlug, todo: Todo) => {
 export const deleteForever = async (provider: DatabaseSlug, todo: Todo) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
-  const { id, done } = todo
+  const { id } = todo
+  if (!id) throw new Error('Need id')
   await todoProvider.server?.deleteForever(id)
   revalidatePath(`/${todoProvider.slug}`)
 }

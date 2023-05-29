@@ -20,7 +20,7 @@ export const TodosPage = ({ provider }: { provider: DatabaseSlug }) => {
     <main className={styles.main}>
       <NextDescription>
         <div>
-          <p>Todolist using data from {todoProvider.name}</p>
+          <p>CRUD using data from {todoProvider.name}</p>
           <h2 className={styles.descriptionH2}>
             <Link href="/" className={inter.className}>
               <span>&lt;-</span> Home
