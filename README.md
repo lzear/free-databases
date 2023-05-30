@@ -12,6 +12,7 @@ Testing different free serverless database providers with a small todo-list impl
 - [Bit.io](https://bit.io/)
 - [CockroachDB](https://www.cockroachlabs.com/)
 - [Convex](https://www.convex.dev/)
+- [CosmosDB](https://learn.microsoft.com/en-us/azure/cosmos-db/)
 - [Deta](https://deta.space/)
 - [ElephantSQL](https://www.elephantsql.com/)
 - [FaunaDB](https://fauna.com/)

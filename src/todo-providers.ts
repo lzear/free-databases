@@ -6,6 +6,7 @@ import { bitio } from './databases/bitio'
 import { cockroach } from './databases/cockroach'
 import { convex } from './databases/convex'
 import { cookie } from './databases/cookie'
+import { cosmosdb } from './databases/cosmosdb'
 import { deta } from './databases/deta'
 import { elephant } from './databases/elephant'
 import { fauna } from './databases/fauna'
@@ -32,28 +33,27 @@ export type TodoProvider = {
 
 export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   // cookie,
-  planetscale,
-  supabase,
-  flyio,
-  vercel,
-  fauna,
-  turso,
-  railway,
   aiven,
-  cockroach,
-  neon,
-  elephant,
-  upstash,
-  yugabyte,
-  tidbcloud,
-  convex,
-  deta,
   bitio,
+  cockroach,
+  convex,
+  cosmosdb,
+  deta,
+  elephant,
+  fauna,
+  flyio,
+  neon,
+  planetscale,
+  railway,
+  supabase,
+  tidbcloud,
+  turso,
+  upstash,
+  vercel,
   xata,
+  yugabyte,
 ]
 
-const todoProvidersArray = [...todoProvidersArrayWithoutCookie, cookie]
-
 export const todoProviders = Object.fromEntries(
-  todoProvidersArray.map((p) => [p.slug, p]),
+  [...todoProvidersArrayWithoutCookie, cookie].map((p) => [p.slug, p]),
 ) satisfies Record<string, TodoProvider> as Record<DatabaseSlug, TodoProvider>

@@ -22,6 +22,7 @@ export const metadata = {
     'Bit.io',
     'CockroachDB',
     'Convex',
+    'Cosmos DB',
     'Deta',
     'ElephantSQL',
     'FaunaDB',

@@ -18,6 +18,7 @@ export const Databases = {
   deta: 'Deta',
   xata: 'Xata',
   'bit-io': 'Bit.io',
+  cosmosdb: 'Cosmos DB',
 } as const
 
 export type DatabaseSlug = keyof typeof Databases

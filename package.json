@@ -35,6 +35,7 @@
     "depcheck": "lerna exec --no-bail --stream -- depcheck"
   },
   "dependencies": {
+    "@azure/cosmos": "^3.17.3",
     "@libsql/client": "^0.1.6",
     "@prisma/client": "^4.14.1",
     "@supabase/supabase-js": "^2.23.0",
