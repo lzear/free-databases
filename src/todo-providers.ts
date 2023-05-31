@@ -10,6 +10,7 @@ import { cosmosdb } from './databases/cosmosdb'
 import { deta } from './databases/deta'
 import { elephant } from './databases/elephant'
 import { fauna } from './databases/fauna'
+import { firebase } from './databases/firebase'
 import { flyio } from './databases/fly-io'
 import { neon } from './databases/neon'
 import { planetscale } from './databases/planetscale'
@@ -41,6 +42,7 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   deta,
   elephant,
   fauna,
+  firebase,
   flyio,
   neon,
   planetscale,
