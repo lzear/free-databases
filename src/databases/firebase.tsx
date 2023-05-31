@@ -6,7 +6,7 @@ import type { ServerImplementation } from '../todos-server/type'
 
 const projectId = process.env.FIREBASE_PROJECT_ID
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL
-const privateKey = process.env.FIREBASE_PRIVATE_KEY
+const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replaceAll(/\\n/gm, '\n')
 
 const firestoreSingleton = new SingletonUnique(() => {
   const app =
