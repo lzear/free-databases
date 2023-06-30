@@ -29,7 +29,6 @@ export const TodosPage = ({ provider }: { provider: DatabaseSlug }) => {
         </div>
       </NextDescription>
 
-      {/* @ts-expect-error Server Component */}
       <TodoList
         provider={provider}
         done={false}
@@ -37,7 +36,6 @@ export const TodosPage = ({ provider }: { provider: DatabaseSlug }) => {
         prepend={<TodoEdit provider={provider} />}
       />
 
-      {/* @ts-expect-error Server Component */}
       <TodoList provider={provider} done={true} title="Done" />
     </main>
   )

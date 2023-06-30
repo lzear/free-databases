@@ -16,7 +16,6 @@ const migrationsFolder = path.join(
 )
 
 const config: ConnectionOptions = {
-  // @ts-expect-error wrong types?
   uri: process.env.TIDBCLOUD_MYSQL_URL,
   ssl: {
     minVersion: 'TLSv1.2',

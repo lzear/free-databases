@@ -13,7 +13,6 @@ export const tidbcloud = {
     </p>
   ),
   server: mysqlImplementation({
-    // @ts-expect-error wrong types?
     uri: process.env.TIDBCLOUD_MYSQL_URL,
     ssl: {
       minVersion: 'TLSv1.2',
