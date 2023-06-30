@@ -27,6 +27,7 @@
 }
 
 .card {
+  position: relative;
   min-width: 0;
   padding: 1.428571rem 1.2rem;
   border-radius: var(--border-radius);
@@ -225,4 +226,29 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.deadmoji {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.deadmoji .discontinued {
+  color: orange;
+  transform: rotate(-30deg);
+  font-weight: bold;
+  font-size: 2.2em;
+  transition: opacity 1.5s;
+  opacity: 0.6;
+}
+
+.card:hover .discontinued {
+  opacity: 0.2;
 }

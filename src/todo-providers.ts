@@ -31,11 +31,18 @@ export type TodoProvider = {
   description: React.ReactNode
   server?: ServerImplementation | undefined
 }
+export type DeadProvider = {
+  name: string
+  slug: DatabaseSlug
+  icon: string
+  description: React.ReactNode
+  dead: true
+}
 
 export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   // cookie,
   aiven,
-  bitio,
+  // bitio,
   cockroach,
   convex,
   cosmosdb,
@@ -55,6 +62,8 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   xata,
   yugabyte,
 ]
+
+export const deadProviders: TodoProvider[] = [bitio]
 
 export const todoProviders = Object.fromEntries(
   [...todoProvidersArrayWithoutCookie, cookie].map((p) => [p.slug, p]),
