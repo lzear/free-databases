@@ -14,6 +14,6 @@ export const bitio = {
       <p>It was discontinued in June 2023.</p>
     </>
   ),
-  dead: true,
+  dead: 'DISCONTINUED',
   // server: pgImplementation(process.env.BITIO_POSTGRES_URL),
 } satisfies DeadProvider

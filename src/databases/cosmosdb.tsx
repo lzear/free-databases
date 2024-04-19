@@ -1,6 +1,6 @@
 import { CosmosClient } from '@azure/cosmos'
 
-import { TodoProvider } from '../todo-providers'
+import { DeadProvider } from '../todo-providers'
 import type { ServerImplementation } from '../todos-server/type'
 
 const databaseId = process.env.COSMOSDB_DATABASE_ID
@@ -70,13 +70,19 @@ export const cosmosdb = {
   slug: 'cosmosdb',
   icon: 'cosmosdb.svg',
   description: (
-    <p>
-      Azure Cosmos DB is a globally-distributed, multi-model database service
-      offered by Microsoft Azure, providing turnkey horizontal scale-out,
-      comprehensive SLAs, and support for multiple data models such as document,
-      graph, key-value, table, and column-family with API support for SQL,
-      MongoDB, Cassandra, Gremlin, and more.
-    </p>
+    <>
+      <p>
+        Azure Cosmos DB is a globally-distributed, multi-model database service
+        offered by Microsoft Azure, providing turnkey horizontal scale-out,
+        comprehensive SLAs, and support for multiple data models such as
+        document, graph, key-value, table, and column-family with API support
+        for SQL, MongoDB, Cassandra, Gremlin, and more.
+      </p>
+      <p>
+        My &ldquo;free&rdquo; instance stopped working after a couple of weeks.
+      </p>
+    </>
   ),
-  server,
-} satisfies TodoProvider
+  // server,
+  dead: 'FREE TIER EXPIRED',
+} satisfies DeadProvider

@@ -9,17 +9,17 @@ Testing different free serverless database providers with a small todo-list impl
 
 ## Featured providers
 - [Aiven](https://aiven.io/)
-- [Bit.io](https://bit.io/)
+- ~~[Bit.io](https://bit.io/)~~
 - [CockroachDB](https://www.cockroachlabs.com/)
 - [Convex](https://www.convex.dev/)
-- [CosmosDB](https://learn.microsoft.com/en-us/azure/cosmos-db/)
+- _[CosmosDB](https://learn.microsoft.com/en-us/azure/cosmos-db/)_
 - [Deta](https://deta.space/)
-- [ElephantSQL](https://www.elephantsql.com/)
+- _[ElephantSQL](https://www.elephantsql.com/)_
 - [FaunaDB](https://fauna.com/)
 - [Fly.io](https://fly.io/)
 - [Neon](https://neon.tech/)
 - [PlanetScale](https://planetscale.com/)
-- [Railway](https://railway.app/)
+- _[Railway](https://railway.app/)_
 - [Supabase](https://supabase.com/)
 - [TiDB Cloud](https://tidbcloud.com/)
 - [Turso](https://turso.tech/)
@@ -29,6 +29,13 @@ Testing different free serverless database providers with a small todo-list impl
 - [Yugabyte](https://www.yugabyte.com/)
 - Cookies as a data store (no third party)
 - Please open a PR or an issue to suggest more!
+
+### Dead providers or broken demos
+
+* Bit.io is discontinued
+* CosmosDB stopped working after 2 weeks
+* ElephantSQL will be discontinued in 2025
+* Railway required an update from me (which I might do later)
 
 ## Getting started locally
 
@@ -77,8 +84,8 @@ CREATE TABLE `Todo` (
 
 * Took a shortcut and set `NODE_TLS_REJECT_UNAUTHORIZED=0`, which is probably not something that you should do in
   production.
-* For Fly.io, I am allocating to database to an IPv4 address, which costs $2/month. I could not find a way to use the
-  free IPv6 address with NextJS+Vercel.
+* ~~For Fly.io, I am allocating to database to an IPv4 address, which costs $2/month. I could not find a way to use the
+  free IPv6 address with NextJS+Vercel.~~ Fly.io never charged me, so I guess it's free.
 * Using Next.js app directory, I couldn't find a way to nicely define special `export const dynamic = '...'`
   or `export const fetchCache = '...'`. It forced me to copy some folders (`convex`, `cookie`, `deta`), it would be nice
   if this could be avoided.

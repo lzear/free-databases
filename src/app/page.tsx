@@ -29,7 +29,7 @@ const MaybeLink = ({
   'dead' in todoProvider ? (
     <div className={styles.card}>
       <div className={styles.deadmoji} aria-label="grave emoji">
-        <div className={styles.discontinued}>DISCONTINUED</div>
+        <div className={styles.discontinued}>{todoProvider.dead}</div>
       </div>
       {children}
     </div>
@@ -40,10 +40,10 @@ const MaybeLink = ({
   )
 
 export default function Home() {
-  const salt = new Date().toISOString().split('T')[0]
+  const rng = rngGenerator(new Date().toISOString().split('T')[0])
   const shuffledProviders = [
-    ...shuffleArray(todoProvidersArrayWithoutCookie, rngGenerator(salt)),
-    ...deadProviders,
+    ...shuffleArray(todoProvidersArrayWithoutCookie, rng),
+    ...shuffleArray(deadProviders, rng),
     cookie,
   ]
   return (

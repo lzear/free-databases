@@ -6,12 +6,15 @@ export const elephant = {
   slug: 'elephant',
   icon: 'elephantsql.png',
   description: (
-    <p>
-      ElephantSQL is a fully-managed PostgreSQL database hosting service. It
-      handles administrative tasks, provides automated backups, performance
-      metrics, and enables easy scaling, all with high security and various
-      plans including a free tier.
-    </p>
+    <>
+      <p>
+        ElephantSQL is a fully-managed PostgreSQL database hosting service. It
+        handles administrative tasks, provides automated backups, performance
+        metrics, and enables easy scaling, all with high security and various
+        plans including a free tier.
+      </p>
+      <p>Will shut down on January 27, 2025.</p>
+    </>
   ),
   server: pgImplementation(process.env.ELEPHANT_POSTGRES_URL),
 } satisfies TodoProvider

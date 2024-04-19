@@ -36,7 +36,7 @@ export type DeadProvider = {
   slug: DatabaseSlug
   icon: string
   description: React.ReactNode
-  dead: true
+  dead: string | React.ReactNode
 }
 
 export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
@@ -45,15 +45,15 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   // bitio,
   cockroach,
   convex,
-  cosmosdb,
+  // cosmosdb,
   deta,
   elephant,
   fauna,
   firebase,
   flyio,
   neon,
-  planetscale,
-  railway,
+  // planetscale,
+  // railway,
   supabase,
   tidbcloud,
   turso,
@@ -63,7 +63,12 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   yugabyte,
 ]
 
-export const deadProviders: TodoProvider[] = [bitio]
+export const deadProviders: TodoProvider[] = [
+  bitio,
+  cosmosdb,
+  planetscale,
+  railway,
+]
 
 export const todoProviders = Object.fromEntries(
   [...todoProvidersArrayWithoutCookie, cookie].map((p) => [p.slug, p]),
