@@ -7,9 +7,7 @@
     "better-sqlite3": "^7.6.2"
   },
   "scripts": {
-    "dev": "yarn pscale-connect & next dev",
-    "pscale-db-push": "prisma db push",
-    "pscale-connect": "pscale connect todos dev --port 3309",
+    "dev": "next dev",
     "env": "dotenv -e .env",
     "drizzle-generate-postgres": "drizzle-kit generate:pg --schema=./src/drizzle-schema/postgres/index.ts",
     "drizzle-generate-mysql": "drizzle-kit generate:mysql --schema=./src/drizzle-schema/mysql/index.ts",
@@ -24,7 +22,7 @@
     "drizzle-migrate-neon": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/neon/migrate.ts",
     "drizzle-migrate-vercel": "dotenv -e .env node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/vercel/migrate.ts",
     "drizzle-migrate-turso": "node --loader ts-node/esm --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings ./src/bin/turso/migrate.ts",
-    "build": "prisma generate && next build && npx convex deploy --typecheck=disable",
+    "build": "next build && npx convex deploy --typecheck=disable",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
@@ -37,7 +35,6 @@
   "dependencies": {
     "@azure/cosmos": "^4.0.0",
     "@libsql/client": "^0.6.0",
-    "@prisma/client": "^5.12.1",
     "@supabase/supabase-js": "^2.42.5",
     "@testing-library/jest-dom": "^6.4.2",
     "@types/lodash": "^4.17.0",
@@ -82,7 +79,6 @@
     "prettier": "^3.2.5",
     "primeicons": "^7.0.0",
     "primereact": "^10.6.3",
-    "prisma": "^5.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "server-only": "^0.0.1",
