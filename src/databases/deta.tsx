@@ -17,7 +17,7 @@ const server = process.env.DETA_PROJECT_KEY
       getTodos: async (done: boolean) => {
         const r = await detaTodos().fetch({ done })
         return r.items.map(
-          ({ key, ...todo }) => ({ ...todo, id: key } as unknown as Todo),
+          ({ key, ...todo }) => ({ ...todo, id: key }) as unknown as Todo,
         )
       },
       setDone: (id: string, done: boolean) =>

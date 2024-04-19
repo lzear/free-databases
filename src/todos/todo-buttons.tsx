@@ -21,7 +21,7 @@ const sharedProps = (loading: boolean) =>
     size: 'small',
     outlined: true,
     className: buttonStyle.button,
-  } as const)
+  }) as const
 
 export const ToggleDone = ({ todo, provider }: Props) => {
   const [isPending, startTransition] = useTransition()

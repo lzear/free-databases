@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    'plugin:markdown/recommended',
+    // 'plugin:markdown/recommended',
     'plugin:import/recommended',
     'plugin:import/errors',
     'plugin:import/typescript',
