@@ -3,7 +3,7 @@
   flex-direction: column;
   margin: 4rem auto;
   padding: 0 6rem;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 @media (max-width: 400px) {
     .main {
