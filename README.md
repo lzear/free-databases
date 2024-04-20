@@ -16,11 +16,13 @@ Testing different free serverless database providers with a small todo-list impl
 - [Deta](https://deta.space/)
 - _[ElephantSQL](https://www.elephantsql.com/)_
 - [FaunaDB](https://fauna.com/)
+- [Firebase](https://firebase.google.com/)
 - [Fly.io](https://fly.io/)
 - [Neon](https://neon.tech/)
-- [PlanetScale](https://planetscale.com/)
+- ~~[PlanetScale](https://planetscale.com/)~~
 - _[Railway](https://railway.app/)_
 - [Supabase](https://supabase.com/)
+- [Tembo](https://tembo.io/)
 - [TiDB Cloud](https://tidbcloud.com/)
 - [Turso](https://turso.tech/)
 - [Upstash](https://upstash.com/)
@@ -93,6 +95,4 @@ CREATE TABLE `Todo` (
 
 ## Todos
 
-- [ ] Find a React component library that works well with Next 13
-- [ ] Stop sharing the todos across users
 - [ ] Add this into [🕶️ Awesome](https://github.com/sindresorhus/awesome) or somewhere

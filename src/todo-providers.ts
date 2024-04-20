@@ -16,6 +16,7 @@ import { neon } from './databases/neon'
 import { planetscale } from './databases/planetscale'
 import { railway } from './databases/railway'
 import { supabase } from './databases/supabase'
+import { tembo } from './databases/tembo'
 import { tidbcloud } from './databases/tidbcloud'
 import { turso } from './databases/turso'
 import { upstash } from './databases/upstash'
@@ -56,6 +57,7 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   // railway,
   supabase,
   tidbcloud,
+  tembo,
   turso,
   upstash,
   vercel,

@@ -15,6 +15,7 @@ export const Databases = {
   railway: 'Railway',
   supabase: 'Supabase',
   tidbcloud: 'TiDB Cloud',
+  tembo: 'Tembo',
   turso: 'Turso',
   upstash: 'Upstash',
   vercel: 'Vercel',
