@@ -45,6 +45,7 @@
     "@vercel/postgres": "^0.8.0",
     "@xata.io/cli": "^0.15.11",
     "@xata.io/client": "^0.29.4",
+    "autoprefixer": "^10.4.19",
     "convex": "^1.11.2",
     "cypress": "13.8.0",
     "date-fns": "^3.6.0",
@@ -75,6 +76,7 @@
     "node-gyp": "^10.1.0",
     "node-postgres": "^0.6.2",
     "pg": "^8.11.5",
+    "postcss": "^8.4.38",
     "postgres": "^3.4.4",
     "prettier": "^3.2.5",
     "primeicons": "^7.0.0",
@@ -83,6 +85,7 @@
     "react-dom": "18.2.0",
     "server-only": "^0.0.1",
     "start-server-and-test": "2.0.3",
+    "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.2",
     "typescript": "5.4.5",
     "vercel": "^34.1.1"
