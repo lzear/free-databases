@@ -4,9 +4,10 @@ import { differenceInSeconds, formatDistance, formatISO } from 'date-fns'
 import { Button } from 'primereact/button'
 import React, { useState } from 'react'
 
-import { Card } from '../components/card'
-import { DatabaseSlug } from '../databases'
-import type { Todo, TodoDto } from '../todos-server/type'
+import { Card } from '@/components/card'
+import { DatabaseSlug } from '@/databases'
+import type { Todo, TodoDto } from '@/todos-server/type'
+
 import buttonStyle from './buttons.module.css'
 import { randomColor } from './color'
 import { DeleteForever, ToggleDone } from './todo-buttons'
