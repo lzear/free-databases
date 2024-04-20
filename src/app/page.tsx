@@ -39,13 +39,14 @@ const MaybeLink = ({
     </Link>
   )
 
+const rng = rngGenerator(new Date().toISOString().split('T')[0])
+const shuffledProviders = [
+  ...shuffleArray(todoProvidersArrayWithoutCookie, rng),
+  ...shuffleArray(deadProviders, rng),
+  cookie,
+]
+
 export default function Home() {
-  const rng = rngGenerator(new Date().toISOString().split('T')[0])
-  const shuffledProviders = [
-    ...shuffleArray(todoProvidersArrayWithoutCookie, rng),
-    ...shuffleArray(deadProviders, rng),
-    cookie,
-  ]
   return (
     <main className={styles.main}>
       <h1>Free databases 🙌</h1>
