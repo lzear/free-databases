@@ -16,10 +16,10 @@ export type Todo = {
 
 export type ServerImplementation = {
   getTodos: (done: boolean) => Promise<Array<Todo | TodoDto>>
-  create: (name: string) => Promise<any>
-  deleteForever: (id: string) => Promise<any>
-  rename: (id: string, name: string) => Promise<any>
-  setDone: (id: string, value: boolean) => Promise<any>
+  create: (name: string) => Promise<unknown>
+  deleteForever: (id: string) => Promise<unknown>
+  rename: (id: string, name: string) => Promise<unknown>
+  setDone: (id: string, value: boolean) => Promise<unknown>
 }
 
 export const todoToDto = (todo: Todo | TodoDto) => ({

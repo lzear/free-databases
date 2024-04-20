@@ -5,6 +5,5 @@ import { TodosPage } from '../../todos/todos-page'
 export const dynamic = 'force-static'
 export const fetchCache = 'force-no-store'
 
-export default function ConvexPage() {
-  return <TodosPage provider="convex" />
-}
+const ConvexPage = () => <TodosPage provider="convex" />
+export default ConvexPage

@@ -46,47 +46,46 @@ const shuffledProviders = [
   cookie,
 ]
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <h1>Free databases 🙌</h1>
+const Home = () => (
+  <main className={styles.main}>
+    <h1>Free databases 🙌</h1>
 
-      <p style={{ marginBottom: 90 }}>Some data storage costing nothing.</p>
+    <p style={{ marginBottom: 90 }}>Some data storage costing nothing.</p>
 
-      <div className={styles.grid}>
-        {shuffledProviders
-          .filter((tp) => 'dead' in tp || tp.server)
-          .map((tp) => (
-            <MaybeLink key={tp.slug} todoProvider={tp}>
-              <h2>
-                <Image
-                  className={styles.logo}
-                  src={`/${tp.icon}`}
-                  alt={`${tp.name} icon`}
-                  width={32}
-                  height={32}
-                  priority
-                />
-                {tp.name}
-                {'dead' in tp ? (
-                  <span className={styles.moj}>🪦</span>
-                ) : (
-                  <>
-                    {' '}
-                    <span>-&gt;</span>
-                  </>
-                )}
-              </h2>
-              {tp.description}
-            </MaybeLink>
-          ))}
-      </div>
-      <p style={{ marginTop: 150 }}>
-        Source code available at{' '}
-        <a href="https://github.com/lzear/free-databases">
-          <GithubLink>lzear/free-databases</GithubLink>
-        </a>
-      </p>
-    </main>
-  )
-}
+    <div className={styles.grid}>
+      {shuffledProviders
+        .filter((tp) => 'dead' in tp || tp.server)
+        .map((tp) => (
+          <MaybeLink key={tp.slug} todoProvider={tp}>
+            <h2>
+              <Image
+                className={styles.logo}
+                src={`/${tp.icon}`}
+                alt={`${tp.name} icon`}
+                width={32}
+                height={32}
+                priority
+              />
+              {tp.name}
+              {'dead' in tp ? (
+                <span className={styles.moj}>🪦</span>
+              ) : (
+                <>
+                  {' '}
+                  <span>-&gt;</span>
+                </>
+              )}
+            </h2>
+            {tp.description}
+          </MaybeLink>
+        ))}
+    </div>
+    <p style={{ marginTop: 150 }}>
+      Source code available at{' '}
+      <a href="https://github.com/lzear/free-databases">
+        <GithubLink>lzear/free-databases</GithubLink>
+      </a>
+    </p>
+  </main>
+)
+export default Home

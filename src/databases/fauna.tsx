@@ -50,7 +50,7 @@ export const fauna = {
           )
           return t.data.map((x) => ({
             ...x.data,
-            // @ts-ignore
+            // @ts-expect-error ???
             id: x.ref.id as string,
           }))
         },

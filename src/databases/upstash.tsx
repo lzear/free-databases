@@ -1,7 +1,6 @@
 import { Redis } from '@upstash/redis'
 import { nanoid } from 'nanoid'
 
-import { todos } from '../drizzle-schema/sqlite'
 import { SingletonUnique } from '../singletons'
 import { TodoProvider } from '../todo-providers'
 import type { Todo } from '../todos-server/type'

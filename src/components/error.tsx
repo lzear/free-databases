@@ -2,7 +2,6 @@
 
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 
 import { Databases, isDatabaseSlug } from '../databases'
@@ -11,7 +10,7 @@ import { NextDescription } from './next-description'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function ErrorComponent({
+const ErrorComponent = ({
   error,
   reset,
   slug,
@@ -19,7 +18,7 @@ export default function ErrorComponent({
   error: Error
   reset: () => void
   slug?: string
-}) {
+}) => {
   useEffect(() => {
     console.error(error)
   }, [error])
@@ -50,3 +49,5 @@ export default function ErrorComponent({
     </main>
   )
 }
+
+export default ErrorComponent

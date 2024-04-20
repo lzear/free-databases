@@ -4,12 +4,7 @@ import React from 'react'
 
 import ErrorComponent from '../../components/error'
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error
-  reset: () => void
-}) {
-  return <ErrorComponent error={error} slug="deta" reset={reset} />
-}
+const Error = ({ error, reset }: { error: Error; reset: () => void }) => (
+  <ErrorComponent error={error} slug="deta" reset={reset} />
+)
+export default Error

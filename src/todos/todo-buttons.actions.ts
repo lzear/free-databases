@@ -8,7 +8,7 @@ import type { TodoDto } from '../todos-server/type'
 
 const MAX_NAME_LENGTH = 200
 
-export async function create(provider: DatabaseSlug, name: string) {
+export const create = async (provider: DatabaseSlug, name: string) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
 
@@ -16,7 +16,11 @@ export async function create(provider: DatabaseSlug, name: string) {
   revalidatePath(`/${todoProvider.slug}`)
 }
 
-export async function rename(provider: DatabaseSlug, id: string, name: string) {
+export const rename = async (
+  provider: DatabaseSlug,
+  id: string,
+  name: string,
+) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error('Invalid provider')
 

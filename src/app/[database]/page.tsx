@@ -5,11 +5,12 @@ import { TodosPage } from '../../todos/todos-page'
 
 export const dynamic = 'force-static'
 
-export default function DataPage(props: {
+const DataPage = (props: {
   params?: { database?: string }
-  searchParams: {}
-}) {
+  searchParams: unknown
+}) => {
   const slug = props?.params?.['database']
   if (!isDatabaseSlug(slug)) return <div>404</div>
   return <TodosPage provider={slug} />
 }
+export default DataPage

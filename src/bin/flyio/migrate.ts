@@ -1,5 +1,3 @@
-#!/usr/bin/env node --loader ts-node/esm --es-module-specifier-resolution=node --no-warnings
-
 import path from 'node:path'
 import url from 'node:url'
 
@@ -19,7 +17,7 @@ const migrationsFolder = path.join(
 
 const pool = new Client(process.env.FLYIO_POSTGRES_URL)
 
-// @ts-ignore
+// @ts-expect-error top level await
 await migrate(drizzle(pool), {
   migrationsFolder,
 })

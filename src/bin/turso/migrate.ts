@@ -1,5 +1,3 @@
-#!/usr/bin/env node --loader ts-node/esm --es-module-specifier-resolution=node --no-warnings
-
 import { createClient } from '@libsql/client'
 
 console.log('Migrating...')
@@ -12,14 +10,14 @@ const client = createClient({
   authToken: process.env.TURSO_SECRET_TOKEN,
 })
 
-// @ts-ignore
+// @ts-expect-error top level await
 await client.execute(`
 
 DROP TABLE IF EXISTS todos;
 
 `)
 
-// @ts-ignore
+// @ts-expect-error top level await
 await client.execute(`
 
 CREATE TABLE \`todos\` (

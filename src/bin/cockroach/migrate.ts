@@ -1,5 +1,3 @@
-#!/usr/bin/env node --loader ts-node/esm --es-module-specifier-resolution=node --no-warnings
-
 import path from 'node:path'
 import url from 'node:url'
 
@@ -20,7 +18,7 @@ const migrationsFolder = path.join(
   '/drizzle',
 )
 
-// @ts-ignore
+// @ts-expect-error top level await
 await migrate(drizzle(migrationClient), { migrationsFolder })
 
 console.log('Migration completed.')

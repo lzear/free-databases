@@ -43,17 +43,12 @@ export const metadata = {
   ],
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <head>
-        <PlausibleProvider domain="free-databases.vercel.app" />
-      </head>
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
-}
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
+  <html lang="en">
+    <head>
+      <PlausibleProvider domain="free-databases.vercel.app" />
+    </head>
+    <body className={inter.className}>{children}</body>
+  </html>
+)
+export default RootLayout

@@ -1,4 +1,5 @@
 export class Singletons<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   A extends any[],
   R,
   S extends (...arguments_: A) => string = (...arguments_: A) => string,
@@ -27,6 +28,7 @@ export class Singletons<
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export class SingletonUnique<A extends any[], R> extends Singletons<A, R> {
   constructor(promise: (...arguments_: A) => R) {
     super(promise, () => 'const')

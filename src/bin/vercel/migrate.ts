@@ -1,15 +1,13 @@
-#!/usr/bin/env node --loader ts-node/esm --es-module-specifier-resolution=node --no-warnings
-
-import { createPool, db } from '@vercel/postgres'
+import { createPool } from '@vercel/postgres'
 
 console.log('Migrating...')
 
-// @ts-ignore
+// @ts-expect-error top level await
 const client = await createPool({
   connectionString: process.env.VERCEL_POSTGRES_URL,
 })
 
-// @ts-ignore
+// @ts-expect-error top level await
 await client.sql`
 
 DROP TABLE IF EXISTS "todos";
