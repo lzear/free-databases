@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ['class'],
+  darkMode: 'media',
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -8,7 +8,9 @@ export default {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  prefix: '',
+  corePlugins: {
+    preflight: false,
+  },
   theme: {
     container: {
       center: true,
