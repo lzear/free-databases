@@ -13,7 +13,7 @@
 .description > div {
   flex: 0 1 340px;
   position: relative;
-  margin: 0;
+  margin: 0 -1rem;
   padding: 1rem;
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
@@ -34,6 +34,7 @@
     width: 100%;
     align-items: center;
     inset: 0 0 auto;
+    margin: 0;
     padding: 1.4rem 1rem;
     border-radius: 0;
     border: none;

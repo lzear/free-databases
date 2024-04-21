@@ -1,15 +1,11 @@
 'use client'
 
-import { Inter } from 'next/font/google'
-import Link from 'next/link'
 import React, { useEffect } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Databases, isDatabaseSlug } from '@/databases'
 
-import styles from '../todos/todos-page.module.css'
-import { NextDescription } from './next-description'
-
-const inter = Inter({ subsets: ['latin'] })
+import { MainNav } from './next-description'
 
 const ErrorComponent = ({
   error,
@@ -24,30 +20,16 @@ const ErrorComponent = ({
     console.error(error)
   }, [error])
   return (
-    <main className={styles.main}>
-      <NextDescription>
-        <div>
-          {isDatabaseSlug(slug) && <p>CRUD demo using {Databases[slug]}</p>}
-          <h2 className={styles.descriptionH2}>
-            <Link href="/" className={inter.className}>
-              <span>&lt;-</span> Home
-            </Link>
-          </h2>
-        </div>
-      </NextDescription>
-      <div style={{ marginTop: 90 }}>
+    <MainNav
+      top={isDatabaseSlug(slug) && <p>CRUD demo using {Databases[slug]}</p>}
+    >
+      <div className="mt-20 flex flex-col gap-5">
         <h2>Something went wrong!</h2>
-
-        <button
-          onClick={
-            // Attempt to recover by trying to re-render the segment
-            () => reset()
-          }
-        >
-          Try again
-        </button>
+        <div>
+          <Button onClick={() => reset()}>Try again</Button>
+        </div>
       </div>
-    </main>
+    </MainNav>
   )
 }
 

@@ -50,7 +50,7 @@ export const TodoList = ({ done, provider, title, prepend }: Props) => {
   if (!todoProvider) throw new Error(`Unknown provider ${provider}`)
 
   return (
-    <div className="mt-16 flex flex-col gap-5">
+    <div className="flex flex-col gap-5">
       <h2>{title}</h2>
       <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
         {prepend}
