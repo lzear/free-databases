@@ -1,6 +1,6 @@
 
 .description {
-  display: inherit;
+  display: flex;
   justify-content: inherit;
   align-items: inherit;
   font-size: 0.85rem;
@@ -11,6 +11,7 @@
 }
 
 .description > div {
+  flex: 0 1 340px;
   position: relative;
   margin: 0;
   padding: 1rem;

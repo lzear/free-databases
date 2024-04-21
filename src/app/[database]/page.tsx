@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { isDatabaseSlug } from '@/databases'
@@ -23,7 +24,7 @@ const DataPage = (props: {
   searchParams: unknown
 }) => {
   const slug = props?.params?.['database']
-  if (!isDatabaseSlug(slug)) return <div>404</div>
+  if (!isDatabaseSlug(slug)) return notFound()
   return <TodosPage provider={slug} />
 }
 export default DataPage
