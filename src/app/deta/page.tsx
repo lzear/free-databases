@@ -1,9 +1,15 @@
+import type { Metadata } from 'next'
 import React from 'react'
+
+import { todoProviders } from '@/todo-providers'
 
 import { TodosPage } from '../../todos/todos-page'
 
+const PROVIDER = 'deta' as const
+
 export const dynamic = 'force-static'
 export const fetchCache = 'force-no-store'
+export const metadata: Metadata = { title: todoProviders[PROVIDER].name }
 
-const DetaPage = () => <TodosPage provider="deta" />
-export default DetaPage
+const P = () => <TodosPage provider={PROVIDER} />
+export default P

@@ -3,14 +3,21 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import PlausibleProvider from 'next-plausible'
 import React from 'react'
 
+import { shuffledProviders } from '@/app/shuffle-providers'
+import { FREE_DATABASES_DOMAIN } from '@/site-data'
+
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Free databases 🙌',
+export const metadata: Metadata = {
+  title: {
+    template: 'Free databases 🙌 | %s',
+    default: 'Free databases 🙌',
+  },
   description: 'Some data storage costing nothing',
   authors: [{ name: 'Antoine Clausse', url: 'https://www.elzear.de/' }],
   creator: 'Antoine Clausse',
@@ -18,25 +25,7 @@ export const metadata = {
     'database',
     'databases',
     'Postgres',
-    'Aiven',
-    'Bit.io',
-    'CockroachDB',
-    'Convex',
-    'Cosmos DB',
-    'Deta',
-    'ElephantSQL',
-    'FaunaDB',
-    'Fly.io',
-    'Neon',
-    'PlanetScale',
-    'Railway',
-    'Supabase',
-    'TiDB',
-    'Turso',
-    'Upstash',
-    'Vercel',
-    'Xata',
-    'Yugabyte',
+    ...shuffledProviders.map((tp) => tp.name),
     'serverless',
     'free',
     'free tier',
@@ -46,7 +35,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="en">
     <head>
-      <PlausibleProvider domain="free-databases.vercel.app" />
+      <PlausibleProvider domain={FREE_DATABASES_DOMAIN} />
     </head>
     <body className={inter.className}>{children}</body>
   </html>

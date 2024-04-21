@@ -3,16 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+import { shuffledProviders } from '@/app/shuffle-providers'
 import { Badge } from '@/components/ui/badge'
-import { cookie } from '@/databases/cookie'
-import { rngGenerator } from '@/rng-generator'
-import { shuffleArray } from '@/shuffle-array'
-import {
-  DeadProvider,
-  deadProviders,
-  TodoProvider,
-  todoProvidersArrayWithoutCookie,
-} from '@/todo-providers'
+import { GITHUB_REPO } from '@/site-data'
+import { DeadProvider, TodoProvider } from '@/todo-providers'
 
 import styles from './page.module.css'
 
@@ -41,13 +35,6 @@ const MaybeLink = ({
     </Link>
   )
 
-const rng = rngGenerator(new Date().toISOString().split('T')[0])
-const shuffledProviders = [
-  ...shuffleArray(todoProvidersArrayWithoutCookie, rng),
-  ...shuffleArray(deadProviders, rng),
-  cookie,
-]
-
 const Home = () => (
   <main className={styles.main}>
     <h1 className="border border-black">Free databases 🙌</h1>
@@ -66,7 +53,6 @@ const Home = () => (
                 alt={`${tp.name} icon`}
                 width={32}
                 height={32}
-                priority
               />
               {tp.name}
               {'dead' in tp ? (
@@ -84,14 +70,10 @@ const Home = () => (
     </div>
     <div className={'mt-16'}>
       Source code available at{' '}
-      <a href="https://github.com/lzear/free-databases">
-        <Badge
-          // color={'#f00'}
-          // variant={'destructive'}
-          className="align-bottom"
-        >
+      <a href={GITHUB_REPO.URL}>
+        <Badge className="align-bottom">
           <Github size={16} color={'#fff'} className="mr-2" />
-          <span>lzear/free-databases</span>
+          <span>{GITHUB_REPO.DISPLAY}</span>
         </Badge>
       </a>
     </div>
