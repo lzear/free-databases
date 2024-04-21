@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import React from 'react'
 
 import { todoProviders } from '@/todo-providers'
-
-import { TodosPage } from '../../todos/todos-page'
+import { TodosPage } from '@/todos/todos-page'
 
 const PROVIDER = 'deta' as const
 

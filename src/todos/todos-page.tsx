@@ -4,9 +4,11 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import React from 'react'
 
-import { NextDescription } from '../components/next-description'
-import { DatabaseSlug } from '../databases'
-import { todoProviders } from '../todo-providers'
+import { NextDescription } from '@/components/next-description'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import { DatabaseSlug } from '@/databases'
+import { todoProviders } from '@/todo-providers'
+
 import { TodoEdit } from './todo-edit'
 import { TodoList } from './todos'
 import styles from './todos-page.module.css'
@@ -16,6 +18,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const TodosPage = ({ provider }: { provider: DatabaseSlug }) => {
   const todoProvider = todoProviders[provider]
   if (!todoProvider) throw new Error(`Unknown provider ${provider}`)
+
   return (
     <main className={styles.main}>
       <NextDescription>
@@ -29,14 +32,16 @@ export const TodosPage = ({ provider }: { provider: DatabaseSlug }) => {
         </div>
       </NextDescription>
 
-      <TodoList
-        provider={provider}
-        done={false}
-        title="To do"
-        prepend={<TodoEdit provider={provider} />}
-      />
+      <TooltipProvider delayDuration={0} disableHoverableContent>
+        <TodoList
+          provider={provider}
+          done={false}
+          title="To do"
+          prepend={<TodoEdit provider={provider} />}
+        />
 
-      <TodoList provider={provider} done={true} title="Done" />
+        <TodoList provider={provider} done={true} title="Done" />
+      </TooltipProvider>
     </main>
   )
 }

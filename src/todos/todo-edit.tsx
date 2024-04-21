@@ -4,12 +4,11 @@ import { Button } from 'primereact/button'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { useState, useTransition } from 'react'
 
-import { Card } from '../components/card'
-import { DatabaseSlug } from '../databases'
-import type { TodoDto } from '../todos-server/type'
-import buttonStyle from './buttons.module.css'
+import { Card } from '@/components/card'
+import { DatabaseSlug } from '@/databases'
+import type { TodoDto } from '@/todos-server/type'
+
 import { create, rename } from './todo-buttons.actions'
-import style from './todo-edit.module.css'
 
 export const TodoEdit = ({
   provider,
@@ -23,7 +22,7 @@ export const TodoEdit = ({
   const [isPending, startTransition] = useTransition()
   const [name, setName] = useState(editTodo?.name || '')
   return (
-    <Card style={{ padding: 0 }}>
+    <Card className="p-0">
       <form
         action={() => {
           startTransition(async () => {
@@ -36,20 +35,21 @@ export const TodoEdit = ({
             }
           })
         }}
-        className={style.newTodo}
+        className="flex min-h-full flex-col"
       >
         <InputTextarea
-          style={{ resize: 'vertical', width: '100%' }}
+          className="size-full min-h-full resize-y bg-transparent p-2"
           placeholder={editTodo ? 'Edit name' : 'Create a new item'}
           disabled={isPending}
           name="todo-name"
+          rows={3}
           value={name}
           onChange={(event) => setName(event.target.value)}
           aria-label={editTodo ? 'Edit todo name' : 'Create a new todo'}
         />
-        <div className={style.editButtons}>
+        <div className="flex gap-2">
           <Button
-            className={buttonStyle.button}
+            className="flex-1 p-2"
             type="submit"
             loading={isPending}
             disabled={name.length === 0 || isPending}
@@ -60,7 +60,7 @@ export const TodoEdit = ({
           {cancel && (
             <Button
               onClick={cancel}
-              className={buttonStyle.button}
+              className="flex-1 px-2 py-1"
               disabled={isPending}
               size="small"
               label="Cancel"

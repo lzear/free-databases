@@ -5,6 +5,11 @@ import { Button } from 'primereact/button'
 import React, { useState } from 'react'
 
 import { Card } from '@/components/card'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { DatabaseSlug } from '@/databases'
 import type { Todo, TodoDto } from '@/todos-server/type'
 
@@ -61,23 +66,31 @@ export const TodoComponent = ({
         background: randomColor(todo.id, 100, 60) + '12',
       }}
     >
-      <div className={styles.header}>
+      <div className="mb-2 inline-flex w-full flex-row-reverse items-start justify-between gap-2">
         <DisplayDate todo={todo} />
-        <div style={{ display: 'flex', gap: 5 }} data-testid="todos-done">
+        <div className="flex gap-1" data-testid="todos-done">
           <ToggleDone todo={todo} provider={provider} />
-          <Button
-            size="small"
-            outlined
-            className={buttonStyle.button}
-            icon="pi pi-pencil"
-            tooltip="Edit"
-            onClick={() => setEditing(true)}
-            aria-label="Edit the todo text"
-          />
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                size="small"
+                outlined
+                className={buttonStyle.button}
+                icon="pi pi-pencil"
+                onClick={() => setEditing(true)}
+                aria-label="Edit the todo text"
+              />
+            </TooltipTrigger>
+            <TooltipContent className="opacity-70">
+              <p>Edit</p>
+            </TooltipContent>
+          </Tooltip>
           {todo.done && <DeleteForever todo={todo} provider={provider} />}
         </div>
       </div>
-      <p className={styles.text}>{todo.name}</p>
+      <p className="m-0 whitespace-pre-wrap break-all text-2xl font-bold leading-normal opacity-80">
+        {todo.name}
+      </p>
     </Card>
   )
 }

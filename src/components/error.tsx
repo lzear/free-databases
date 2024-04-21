@@ -4,7 +4,8 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
 
-import { Databases, isDatabaseSlug } from '../databases'
+import { Databases, isDatabaseSlug } from '@/databases'
+
 import styles from '../todos/todos-page.module.css'
 import { NextDescription } from './next-description'
 
