@@ -18,6 +18,7 @@ Testing different free serverless database providers with a small todo-list impl
 - [FaunaDB](https://fauna.com/)
 - [Firebase](https://firebase.google.com/)
 - [Fly.io](https://fly.io/)
+- [Koyeb](https://www.koyeb.com/)
 - [Neon](https://neon.tech/)
 - ~~[PlanetScale](https://planetscale.com/)~~
 - _[Railway](https://railway.app/)_

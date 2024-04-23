@@ -12,6 +12,7 @@ import { elephant } from './databases/elephant'
 import { fauna } from './databases/fauna'
 import { firebase } from './databases/firebase'
 import { flyio } from './databases/fly-io'
+import { koyeb } from './databases/koyeb'
 import { neon } from './databases/neon'
 import { planetscale } from './databases/planetscale'
 import { railway } from './databases/railway'
@@ -52,6 +53,7 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   fauna,
   firebase,
   flyio,
+  koyeb,
   neon,
   // planetscale,
   // railway,

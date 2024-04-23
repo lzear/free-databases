@@ -10,6 +10,7 @@ export const Databases = {
   fauna: 'FaunaDB',
   firebase: 'Firebase',
   'fly-io': 'Fly.io',
+  koyeb: 'Koyeb',
   neon: 'Neon',
   planetscale: 'PlanetScale',
   railway: 'Railway',
