@@ -19,6 +19,7 @@ Testing different free serverless database providers with a small todo-list impl
 - [Firebase](https://firebase.google.com/)
 - [Fly.io](https://fly.io/)
 - [Koyeb](https://www.koyeb.com/)
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 - [Neon](https://neon.tech/)
 - ~~[PlanetScale](https://planetscale.com/)~~
 - _[Railway](https://railway.app/)_

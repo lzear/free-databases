@@ -13,6 +13,7 @@ import { fauna } from './databases/fauna'
 import { firebase } from './databases/firebase'
 import { flyio } from './databases/fly-io'
 import { koyeb } from './databases/koyeb'
+import { mongodb } from './databases/mongodb'
 import { neon } from './databases/neon'
 import { planetscale } from './databases/planetscale'
 import { railway } from './databases/railway'
@@ -54,6 +55,7 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   firebase,
   flyio,
   koyeb,
+  mongodb,
   neon,
   // planetscale,
   // railway,

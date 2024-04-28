@@ -11,6 +11,7 @@ export const Databases = {
   firebase: 'Firebase',
   'fly-io': 'Fly.io',
   koyeb: 'Koyeb',
+  mongodb: 'MongoDB Atlas',
   neon: 'Neon',
   planetscale: 'PlanetScale',
   railway: 'Railway',
