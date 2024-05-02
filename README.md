@@ -22,7 +22,7 @@ Testing different free serverless database providers with a small todo-list impl
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database)
 - [Neon](https://neon.tech/)
 - ~~[PlanetScale](https://planetscale.com/)~~
-- _[Railway](https://railway.app/)_
+- ~~[Railway](https://railway.app/)~~
 - [Supabase](https://supabase.com/)
 - [Tembo](https://tembo.io/)
 - [TiDB Cloud](https://tidbcloud.com/)

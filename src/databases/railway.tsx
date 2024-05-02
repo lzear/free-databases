@@ -1,5 +1,4 @@
-import { DeadProvider } from '../todo-providers'
-// import { pgImplementation } from '../with-pg'
+import { DeadProvider } from '@/todo-providers'
 
 export const railway = {
   name: 'Railway',
@@ -19,9 +18,5 @@ export const railway = {
       </p>
     </>
   ),
-  dead: (
-    <>
-      DATABASE DELETED (<em>&ldquo;ACTION REQUIRED&rdquo;</em>)
-    </>
-  ),
+  dead: <>NO MORE FREE TIER</>,
 } satisfies DeadProvider
