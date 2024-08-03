@@ -16,6 +16,7 @@ import { koyeb } from './databases/koyeb'
 import { mongodb } from './databases/mongodb'
 import { neon } from './databases/neon'
 import { planetscale } from './databases/planetscale'
+import { pockethost } from './databases/pockethost'
 import { railway } from './databases/railway'
 import { supabase } from './databases/supabase'
 import { tembo } from './databases/tembo'
@@ -58,6 +59,7 @@ export const todoProvidersArrayWithoutCookie: TodoProvider[] = [
   mongodb,
   neon,
   // planetscale,
+  pockethost,
   // railway,
   supabase,
   tidbcloud,

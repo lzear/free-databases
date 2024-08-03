@@ -45,7 +45,9 @@ const Home = () => (
   <main className="mx-auto my-0 flex min-h-dvh max-w-[var(--max-width)] flex-col items-center justify-between gap-12 p-16 px-4 text-center sm:px-12 sm:text-left">
     <div className="flex flex-col gap-5">
       <h1>Free databases 🙌</h1>
-      <p className="">Some data storage costing nothing.</p>
+      <p>
+        Some data storage costing nothing<strong>*</strong>.
+      </p>
     </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
@@ -75,6 +77,7 @@ const Home = () => (
           </MaybeLink>
         ))}
     </div>
+    <p className="text-xs">* Free forever until it's not.</p>
     <div>
       Source code available at{' '}
       <a href={GITHUB_REPO.URL}>

@@ -14,6 +14,7 @@ export const Databases = {
   mongodb: 'MongoDB Atlas',
   neon: 'Neon',
   planetscale: 'PlanetScale',
+  pockethost: 'PocketHost',
   railway: 'Railway',
   supabase: 'Supabase',
   tidbcloud: 'TiDB Cloud',
